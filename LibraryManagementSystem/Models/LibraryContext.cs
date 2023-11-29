@@ -19,6 +19,50 @@ namespace LibraryManagementSystem.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Book>()
+                .HasRequired(b => b.Category)
+                .WithMany()
+                .HasForeignKey(b => b.CategoryID);
+
+            modelBuilder.Entity<BorrowingRecord>()
+                .HasRequired(br => br.Book)
+                .WithMany(b => b.BorrowingRecords)
+                .HasForeignKey(br => br.BookId);
+
+            modelBuilder.Entity<BorrowingRecord>()
+                .HasRequired(br => br.Member)
+                .WithMany()
+                .HasForeignKey(br => br.MemberId);
+
+            modelBuilder.Entity<Reservation>()
+                .HasRequired(r => r.Book)
+                .WithMany()
+                .HasForeignKey(r => r.BookId);
+
+            modelBuilder.Entity<Reservation>()
+                .HasRequired(r => r.Member)
+                .WithMany()
+                .HasForeignKey(r => r.MemberId);
+
+            modelBuilder.Entity<Review>()
+                .HasRequired(rv => rv.Book)
+                .WithMany()
+                .HasForeignKey(rv => rv.BookId);
+
+            modelBuilder.Entity<Review>()
+                .HasRequired(rv => rv.Member)
+                .WithMany()
+                .HasForeignKey(rv => rv.MemberId);
+
+            modelBuilder.Entity<EventRegistration>()
+                .HasRequired(er => er.Event)
+                .WithMany()
+                .HasForeignKey(er => er.EventId);
+
+            modelBuilder.Entity<EventRegistration>()
+                .HasRequired(er => er.Member)
+                .WithMany()
+                .HasForeignKey(er => er.MemberId);
         }
     }
 }

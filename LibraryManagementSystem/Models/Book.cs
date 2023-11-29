@@ -20,10 +20,10 @@ namespace LibraryManagementSystem.Models
         public int Quantity { get; set; }
         public string ShelfLocation { get; set; }
 
-        // Navigation property for the Category
         public virtual Category Category { get; set; }
 
-        // Navigation property for BorrowingRecords
         public virtual ICollection<BorrowingRecord> BorrowingRecords { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
