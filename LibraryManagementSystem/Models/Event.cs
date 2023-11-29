@@ -10,8 +10,8 @@ namespace LibraryManagementSystem.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string EventDate { get; set; }
-        public string EventTime { get; set; }
+        public DateTime EventDate { get; set; }
+        public DateTime EventTime { get; set; }
         public string Venue { get; set; }
         public string Organizer { get; set; }
         public string ContactNo { get; set; }
