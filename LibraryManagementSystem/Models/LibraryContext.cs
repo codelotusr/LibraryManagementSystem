@@ -22,7 +22,7 @@ namespace LibraryManagementSystem.Models
             modelBuilder.Entity<Book>()
                 .HasRequired(b => b.Category)
                 .WithMany()
-                .HasForeignKey(b => b.CategoryID);
+                .HasForeignKey(b => b.CategoryId);
 
             modelBuilder.Entity<BorrowingRecord>()
                 .HasRequired(br => br.Book)

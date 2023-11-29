@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,23 +10,42 @@ namespace LibraryManagementSystem.Models
 {
     public class Book
     {
-        [Key]
-        public int BookID { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
-        public string ISBN { get; set; }
-        public int PublishedYear { get; set; }
-        public int CategoryID { get; set; }
-        public string Edition { get; set; }
-        public int Price { get; set; }
-        public int Quantity { get; set; }
-        public string ShelfLocation { get; set; }
+        [Key] public int BookID { get; set; }
 
-        public virtual Category Category { get; set; }
+        [Required] [StringLength(100)] public string Title { get; set; }
+
+        [Required] [StringLength(100)] public string Author { get; set; }
+
+        [StringLength(100)] public string Description { get; set; }
+
+        [Required]
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "ISBN must be between 10 and 13 characters long.")]
+        [Index(IsUnique = true)]
+        public string ISBN { get; set; }
+
+        [Required] public int PublishedYear { get; set; }
+
+        [Required] public int CategoryId { get; set; }
+
+        [StringLength(100)] public string Edition { get; set; }
+
+        [DataType(DataType.Currency)] public decimal Price { get; set; }
+
+        [Required] [Range(0, 1000)] public int Quantity { get; set; }
+
+        [StringLength(100)] public string ShelfLocation { get; set; }
+
+        [ForeignKey("CategoryId")] public virtual Category Category { get; set; }
 
         public virtual ICollection<BorrowingRecord> BorrowingRecords { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
+
+        public Book()
+        {
+            BorrowingRecords = new HashSet<BorrowingRecord>();
+            Reviews = new HashSet<Review>();
+            Reservations = new HashSet<Reservation>();
+        }
     }
 }
