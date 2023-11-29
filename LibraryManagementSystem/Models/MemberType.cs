@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace LibraryManagementSystem.Models
 {
     public class MemberType
     {
+        [Key]
         public int MemberTypeId { get; set; }
         public string MemberTypeName { get; set; }
         public int MaxBooks { get; set; }

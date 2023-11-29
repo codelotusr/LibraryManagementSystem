@@ -10,7 +10,7 @@ namespace LibraryManagementSystem.Models
 
     public class LibraryContext : DbContext
     {
-        public LibraryContext() : base("name=LibraryDBConnectionString")
+        public LibraryContext() : base("name=librarycontext")
         {
         }
 
