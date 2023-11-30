@@ -15,7 +15,7 @@ namespace LibraryManagementSystem.Models
         public int BookId { get; set; }
         [ForeignKey("Member")]
         public int MemberId { get; set; }
-        public string Status { get; set; }
+        public ReservationStatus Status { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime ReservedDate { get; set; }
@@ -32,5 +32,13 @@ namespace LibraryManagementSystem.Models
         public virtual ICollection<Book> Books { get; set; }
 
 
+    }
+
+    public enum ReservationStatus
+    {
+        Reserved,
+        Borrowed,
+        Returned,
+        Overdue
     }
 }
