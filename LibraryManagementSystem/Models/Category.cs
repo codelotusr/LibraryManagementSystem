@@ -11,6 +11,16 @@ namespace LibraryManagementSystem.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [StringLength(100)]
+        [Index(IsUnique = true)]
         public string CategoryName { get; set; }
+
+        public virtual ICollection<Book> Books { get; set; }
+
+        public Category()
+        {
+            Books = new HashSet<Book>();
+        }
     }
 }
