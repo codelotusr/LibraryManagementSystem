@@ -11,14 +11,26 @@ namespace LibraryManagementSystem.Models
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("Book")]
         public int BookId { get; set; }
+        [ForeignKey("Member")]
         public int MemberId { get; set; }
         public string Status { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime ReservedDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? BorrowedDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DueDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? ReturnedDate { get; set; }
         public Book Book { get; set; }
         public Member Member { get; set; }
+
+        public virtual ICollection<Member> Members { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
+
+
     }
 }
