@@ -35,7 +35,7 @@ namespace LibraryManagementSystem.Models
 
         [StringLength(100)] public string ShelfLocation { get; set; }
 
-        [ForeignKey("CategoryId")] public virtual Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         public virtual ICollection<BorrowingRecord> BorrowingRecords { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
