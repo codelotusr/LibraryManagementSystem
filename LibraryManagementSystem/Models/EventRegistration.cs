@@ -11,10 +11,14 @@ namespace LibraryManagementSystem.Models
     {
         [Key]
         public int Id { get; set; }
+        [ForeignKey("Event")]
         public int EventId { get; set; }
+        [ForeignKey("Member")]
         public int MemberId { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime RegisteredDate { get; set; }
-        public Event Event { get; set; }
-        public Member Member { get; set; }
+        public virtual Event Event { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

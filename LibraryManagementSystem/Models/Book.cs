@@ -25,6 +25,7 @@ namespace LibraryManagementSystem.Models
 
         [Required] public int PublishedYear { get; set; }
 
+        [ForeignKey("Category")]
         [Required] public int CategoryId { get; set; }
 
         [StringLength(100)] public string Edition { get; set; }
