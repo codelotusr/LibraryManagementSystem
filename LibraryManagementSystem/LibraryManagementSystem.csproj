@@ -79,6 +79,9 @@
     <Compile Include="Models\Review.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311291703286_InitialCreate.resx">
       <DependentUpon>202311291703286_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
