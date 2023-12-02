@@ -36,8 +36,10 @@ namespace LibraryManagementSystem.Models
 
             modelBuilder.Entity<Reservation>()
                 .HasRequired(r => r.Book)
-                .WithMany()
-                .HasForeignKey(r => r.BookId);
+                .WithMany(b => b.Reservations)
+                .HasForeignKey(r => r.BookId)
+                .WillCascadeOnDelete(false); 
+
 
             modelBuilder.Entity<Reservation>()
                 .HasRequired(r => r.Member)
