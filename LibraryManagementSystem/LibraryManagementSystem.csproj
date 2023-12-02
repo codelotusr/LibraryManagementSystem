@@ -62,9 +62,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312021244015_InitialCreate.cs" />
-    <Compile Include="Migrations\202312021244015_InitialCreate.designer.cs">
-      <DependentUpon>202312021244015_InitialCreate.cs</DependentUpon>
+    <Compile Include="LibraryDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312021404232_InitialCreate.cs" />
+    <Compile Include="Migrations\202312021404232_InitialCreate.designer.cs">
+      <DependentUpon>202312021404232_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -82,8 +87,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312021244015_InitialCreate.resx">
-      <DependentUpon>202312021244015_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312021404232_InitialCreate.resx">
+      <DependentUpon>202312021404232_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +99,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="LibraryDatabaseDataSet.xsc">
+      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibraryDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LibraryDatabaseDataSet.xss">
+      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -12,9 +12,7 @@ namespace LibraryManagementSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Book")]
         public int BookId { get; set; }
-        [ForeignKey("Member")]
         public int MemberId { get; set; }
         public ReservationStatus Status { get; set; }
         [Required]
@@ -28,10 +26,6 @@ namespace LibraryManagementSystem.Models
         public DateTime? ReturnedDate { get; set; }
         public Book Book { get; set; }
         public Member Member { get; set; }
-
-        public virtual ICollection<Member> Members { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
-
 
     }
 

@@ -12,9 +12,7 @@ namespace LibraryManagementSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Event")]
         public int EventId { get; set; }
-        [ForeignKey("Member")]
         public int MemberId { get; set; }
         [Required]
         [DataType(DataType.Date)]

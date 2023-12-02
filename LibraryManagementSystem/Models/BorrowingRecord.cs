@@ -13,9 +13,7 @@ namespace LibraryManagementSystem.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Book")]
         public int BookId { get; set; }
-        [ForeignKey("Member")]
         public int MemberId { get; set; }
 
         [Required]
