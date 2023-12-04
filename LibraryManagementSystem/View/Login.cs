@@ -17,17 +17,36 @@ namespace LibraryManagementSystem
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Register register = new Register();
+            register.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userIdTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

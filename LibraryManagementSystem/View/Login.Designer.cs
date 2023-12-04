@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem
+﻿using System;
+
+namespace LibraryManagementSystem
 {
     partial class Login
     {
@@ -63,6 +65,7 @@
             this.userIdTextBox.Name = "userIdTextBox";
             this.userIdTextBox.Size = new System.Drawing.Size(408, 20);
             this.userIdTextBox.TabIndex = 2;
+            this.userIdTextBox.TextChanged += new System.EventHandler(this.userIdTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -70,6 +73,8 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(407, 20);
             this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // loginButton
             // 
@@ -106,6 +111,7 @@
             this.Controls.Add(this.userIdLabel);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
