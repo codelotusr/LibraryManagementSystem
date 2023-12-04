@@ -56,20 +56,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryDatabaseDataSet.Designer.cs">
+    <Compile Include="Interfaces\ILibraryItem.cs" />
+    <Compile Include="LibraryDatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312021404232_InitialCreate.cs" />
-    <Compile Include="Migrations\202312021404232_InitialCreate.designer.cs">
-      <DependentUpon>202312021404232_InitialCreate.cs</DependentUpon>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312021456536_InitialCreate.cs" />
+    <Compile Include="Migrations\202312021456536_InitialCreate.designer.cs">
+      <DependentUpon>202312021456536_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -78,17 +79,18 @@
     <Compile Include="Models\EventRegistration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LibraryContext.cs" />
+    <Compile Include="Models\Magazine.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MemberType.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312021404232_InitialCreate.resx">
-      <DependentUpon>202312021404232_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312021456536_InitialCreate.resx">
+      <DependentUpon>202312021456536_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,16 +101,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="LibraryDatabaseDataSet.xsc">
-      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    <None Include="LibraryDatabaseDataSet1.xsc">
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="LibraryDatabaseDataSet.xsd">
+    <None Include="LibraryDatabaseDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LibraryDatabaseDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>LibraryDatabaseDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="LibraryDatabaseDataSet.xss">
-      <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    <None Include="LibraryDatabaseDataSet1.xss">
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

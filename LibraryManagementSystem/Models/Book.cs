@@ -5,12 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagementSystem.Interfaces;
 
 namespace LibraryManagementSystem.Models
 {
-    public class Book
+    public class Book : ILibraryItem
     {
-        [Key] public int BookID { get; set; }
+        [Key] public int Id { get; set; }
 
         [Required] [StringLength(100)] public string Title { get; set; }
 
@@ -48,5 +49,11 @@ namespace LibraryManagementSystem.Models
             Reviews = new HashSet<Review>();
             Reservations = new HashSet<Reservation>();
         }
+
+        public string GetSummary()
+        {
+            return $"Book: {Title} by {Author}, published in {PublishedYear}. ISBN: {ISBN}";
+        }
+
     }
 }
