@@ -35,14 +35,14 @@ namespace LibraryManagementSystem
             this.userIdTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.registerButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userIdLabel
             // 
             this.userIdLabel.AutoSize = true;
             this.userIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIdLabel.Location = new System.Drawing.Point(132, 150);
+            this.userIdLabel.Location = new System.Drawing.Point(112, 169);
             this.userIdLabel.Name = "userIdLabel";
             this.userIdLabel.Size = new System.Drawing.Size(89, 25);
             this.userIdLabel.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace LibraryManagementSystem
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(109, 211);
+            this.passwordLabel.Location = new System.Drawing.Point(89, 230);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(112, 25);
             this.passwordLabel.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace LibraryManagementSystem
             // 
             // userIdTextBox
             // 
-            this.userIdTextBox.Location = new System.Drawing.Point(227, 156);
+            this.userIdTextBox.Location = new System.Drawing.Point(207, 175);
             this.userIdTextBox.Name = "userIdTextBox";
             this.userIdTextBox.Size = new System.Drawing.Size(408, 20);
             this.userIdTextBox.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace LibraryManagementSystem
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(228, 216);
+            this.passwordTextBox.Location = new System.Drawing.Point(208, 235);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(407, 20);
             this.passwordTextBox.TabIndex = 3;
@@ -79,31 +79,30 @@ namespace LibraryManagementSystem
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(228, 306);
+            this.loginButton.Location = new System.Drawing.Point(207, 288);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(114, 45);
+            this.loginButton.Size = new System.Drawing.Size(407, 45);
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // registerButton
+            // label1
             // 
-            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.Location = new System.Drawing.Point(521, 306);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(114, 45);
-            this.registerButton.TabIndex = 6;
-            this.registerButton.Text = "Register";
-            this.registerButton.UseVisualStyleBackColor = true;
-            this.registerButton.Click += new System.EventHandler(this.button1_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(319, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 55);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Library";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.registerButton);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userIdTextBox);
@@ -124,6 +123,6 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.TextBox userIdTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Label label1;
     }
 }
