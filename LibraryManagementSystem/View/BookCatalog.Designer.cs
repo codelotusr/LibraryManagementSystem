@@ -48,7 +48,7 @@
             // rentABookButton
             // 
             this.rentABookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentABookButton.Location = new System.Drawing.Point(517, 217);
+            this.rentABookButton.Location = new System.Drawing.Point(503, 229);
             this.rentABookButton.Name = "rentABookButton";
             this.rentABookButton.Size = new System.Drawing.Size(110, 42);
             this.rentABookButton.TabIndex = 3;
@@ -58,7 +58,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(431, 35);
+            this.textBox1.Location = new System.Drawing.Point(434, 34);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(334, 20);
             this.textBox1.TabIndex = 4;
@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(384, 35);
+            this.label1.Location = new System.Drawing.Point(387, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 6;
@@ -79,7 +79,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(367, 61);
+            this.label2.Location = new System.Drawing.Point(370, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 8;
@@ -87,7 +87,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(431, 63);
+            this.textBox2.Location = new System.Drawing.Point(434, 62);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(334, 20);
             this.textBox2.TabIndex = 7;
