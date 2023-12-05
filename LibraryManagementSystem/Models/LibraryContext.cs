@@ -10,15 +10,19 @@ namespace LibraryManagementSystem.Models
 
     public class LibraryContext : DbContext
     {
-        public LibraryContext() : base("name=librarycontext")
-        {
-        }
+        public LibraryContext() : base("name=librarycontext") { }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<Staff> Staff { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .ToTable("Users")
+                .Map<Member>(m => m.Requires("UserType").HasValue("Member"))
+                .Map<Staff>(m => m.Requires("UserType").HasValue("Staff"));
+
             modelBuilder.Entity<Book>()
                 .HasRequired(b => b.Category)
                 .WithMany()

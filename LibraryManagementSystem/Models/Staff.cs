@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Models
 {
-    internal class Staff : User
+    public class Staff : User
     {
         [Index(IsUnique = true)]
         [Required]
