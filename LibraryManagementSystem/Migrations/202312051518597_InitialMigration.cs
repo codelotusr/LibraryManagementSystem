@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@
                 "dbo.Books",
                 c => new
                     {
-                        BookID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false, maxLength: 100),
                         Author = c.String(nullable: false, maxLength: 100),
                         Description = c.String(maxLength: 100),
@@ -24,7 +24,7 @@
                         ShelfLocation = c.String(maxLength: 100),
                         Category_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.BookID)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Categories", t => t.Category_Id)
                 .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
                 .Index(t => t.ISBN, unique: true)
@@ -111,17 +111,17 @@
                         Comment = c.String(nullable: false, maxLength: 100),
                         ReviewDate = c.DateTime(nullable: false),
                         Member_Id = c.Int(),
-                        Book_BookID = c.Int(),
+                        Book_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
                 .ForeignKey("dbo.Members", t => t.Member_Id)
-                .ForeignKey("dbo.Books", t => t.Book_BookID)
+                .ForeignKey("dbo.Books", t => t.Book_Id)
                 .Index(t => t.BookId)
                 .Index(t => t.MemberId)
                 .Index(t => t.Member_Id)
-                .Index(t => t.Book_BookID);
+                .Index(t => t.Book_Id);
             
             CreateTable(
                 "dbo.Categories",
@@ -156,7 +156,7 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Reviews", "Book_BookID", "dbo.Books");
+            DropForeignKey("dbo.Reviews", "Book_Id", "dbo.Books");
             DropForeignKey("dbo.Reservations", "MemberId", "dbo.Members");
             DropForeignKey("dbo.Reservations", "BookId", "dbo.Books");
             DropForeignKey("dbo.Books", "CategoryId", "dbo.Categories");
@@ -173,7 +173,7 @@
             DropIndex("dbo.Reservations", new[] { "MemberId" });
             DropIndex("dbo.Reservations", new[] { "BookId" });
             DropIndex("dbo.Categories", new[] { "CategoryName" });
-            DropIndex("dbo.Reviews", new[] { "Book_BookID" });
+            DropIndex("dbo.Reviews", new[] { "Book_Id" });
             DropIndex("dbo.Reviews", new[] { "Member_Id" });
             DropIndex("dbo.Reviews", new[] { "MemberId" });
             DropIndex("dbo.Reviews", new[] { "BookId" });

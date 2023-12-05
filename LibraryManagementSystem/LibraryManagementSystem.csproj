@@ -56,6 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202312051518597_InitialMigration.cs" />
+    <Compile Include="Migrations\202312051518597_InitialMigration.designer.cs">
+      <DependentUpon>202312051518597_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="View\BookCatalog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +88,6 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ILibraryItem.cs" />
-    <Compile Include="LibraryDatabaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="View\EventManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +112,6 @@
     <Compile Include="View\MemberManagement.Designer.cs">
       <DependentUpon>MemberManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312021456536_InitialCreate.cs" />
-    <Compile Include="Migrations\202312021456536_InitialCreate.designer.cs">
-      <DependentUpon>202312021456536_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BorrowingRecord.cs" />
     <Compile Include="Models\Category.cs" />
@@ -146,6 +143,9 @@
     <Compile Include="View\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202312051518597_InitialMigration.resx">
+      <DependentUpon>202312051518597_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\BookCatalog.resx">
       <DependentUpon>BookCatalog.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,9 +154,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312021456536_InitialCreate.resx">
-      <DependentUpon>202312021456536_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -168,17 +165,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="LibraryDatabaseDataSet1.xsc">
-      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LibraryDatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LibraryDatabaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LibraryDatabaseDataSet1.xss">
-      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

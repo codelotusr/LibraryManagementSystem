@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Models
 {
-    public class Member : User
+    internal class Staff : User
     {
-    }
+        [Index(IsUnique = true)]
+        [Required]
+        public string StaffId { get; set; }
 
+        public Staff()
+        {
+        }
+    }
 }

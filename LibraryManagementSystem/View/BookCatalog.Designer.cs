@@ -44,6 +44,7 @@
             this.catalogListView.Size = new System.Drawing.Size(347, 386);
             this.catalogListView.TabIndex = 0;
             this.catalogListView.UseCompatibleStateImageBehavior = false;
+            this.catalogListView.SelectedIndexChanged += new System.EventHandler(this.catalogListView_SelectedIndexChanged);
             // 
             // rentABookButton
             // 
@@ -105,6 +106,7 @@
             this.Controls.Add(this.catalogListView);
             this.Name = "BookCatalog";
             this.Text = "BookCatalog";
+            this.Load += new System.EventHandler(this.BookCatalog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
