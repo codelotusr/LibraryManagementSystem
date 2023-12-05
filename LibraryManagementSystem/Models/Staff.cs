@@ -12,7 +12,10 @@ namespace LibraryManagementSystem.Models
     {
         [Index(IsUnique = true)]
         [Required]
-        public string StaffId { get; set; }
+        public int StaffNumber { get; set; }
+
+        [Required]
+        public Boolean isAdmin { get; set; }
 
         public Staff()
         {

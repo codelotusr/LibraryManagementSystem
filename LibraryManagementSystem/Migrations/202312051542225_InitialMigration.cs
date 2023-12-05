@@ -42,18 +42,18 @@
                         BorrowedDate = c.DateTime(nullable: false),
                         DueDate = c.DateTime(nullable: false),
                         ReturnedDate = c.DateTime(),
-                        Member_Id = c.Int(),
+                        User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
-                .ForeignKey("dbo.Members", t => t.Member_Id)
-                .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.MemberId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.BookId)
                 .Index(t => t.MemberId)
-                .Index(t => t.Member_Id);
+                .Index(t => t.User_Id);
             
             CreateTable(
-                "dbo.Members",
+                "dbo.Users",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -62,9 +62,13 @@
                         PhoneNumber = c.String(nullable: false, maxLength: 100),
                         Address = c.String(nullable: false, maxLength: 100),
                         PasswordHash = c.String(nullable: false, maxLength: 100),
+                        StaffNumber = c.Int(),
+                        isAdmin = c.Boolean(),
+                        UserType = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.Email, unique: true);
+                .Index(t => t.Email, unique: true)
+                .Index(t => t.StaffNumber, unique: true);
             
             CreateTable(
                 "dbo.EventRegistrations",
@@ -74,15 +78,15 @@
                         EventId = c.Int(nullable: false),
                         MemberId = c.Int(nullable: false),
                         RegisteredDate = c.DateTime(nullable: false),
-                        Member_Id = c.Int(),
+                        User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Events", t => t.EventId, cascadeDelete: true)
-                .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
-                .ForeignKey("dbo.Members", t => t.Member_Id)
+                .ForeignKey("dbo.Users", t => t.MemberId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.EventId)
                 .Index(t => t.MemberId)
-                .Index(t => t.Member_Id);
+                .Index(t => t.User_Id);
             
             CreateTable(
                 "dbo.Events",
@@ -110,18 +114,18 @@
                         Rating = c.Int(nullable: false),
                         Comment = c.String(nullable: false, maxLength: 100),
                         ReviewDate = c.DateTime(nullable: false),
-                        Member_Id = c.Int(),
                         Book_Id = c.Int(),
+                        User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
-                .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
-                .ForeignKey("dbo.Members", t => t.Member_Id)
+                .ForeignKey("dbo.Users", t => t.MemberId, cascadeDelete: true)
                 .ForeignKey("dbo.Books", t => t.Book_Id)
+                .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.BookId)
                 .Index(t => t.MemberId)
-                .Index(t => t.Member_Id)
-                .Index(t => t.Book_Id);
+                .Index(t => t.Book_Id)
+                .Index(t => t.User_Id);
             
             CreateTable(
                 "dbo.Categories",
@@ -148,7 +152,7 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Books", t => t.BookId)
-                .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.MemberId, cascadeDelete: true)
                 .Index(t => t.BookId)
                 .Index(t => t.MemberId);
             
@@ -156,32 +160,33 @@
         
         public override void Down()
         {
+            DropForeignKey("dbo.Reviews", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.EventRegistrations", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.BorrowingRecords", "User_Id", "dbo.Users");
             DropForeignKey("dbo.Reviews", "Book_Id", "dbo.Books");
-            DropForeignKey("dbo.Reservations", "MemberId", "dbo.Members");
+            DropForeignKey("dbo.Reservations", "MemberId", "dbo.Users");
             DropForeignKey("dbo.Reservations", "BookId", "dbo.Books");
             DropForeignKey("dbo.Books", "CategoryId", "dbo.Categories");
             DropForeignKey("dbo.Books", "Category_Id", "dbo.Categories");
-            DropForeignKey("dbo.BorrowingRecords", "MemberId", "dbo.Members");
-            DropForeignKey("dbo.Reviews", "Member_Id", "dbo.Members");
-            DropForeignKey("dbo.Reviews", "MemberId", "dbo.Members");
+            DropForeignKey("dbo.BorrowingRecords", "MemberId", "dbo.Users");
+            DropForeignKey("dbo.Reviews", "MemberId", "dbo.Users");
             DropForeignKey("dbo.Reviews", "BookId", "dbo.Books");
-            DropForeignKey("dbo.EventRegistrations", "Member_Id", "dbo.Members");
-            DropForeignKey("dbo.EventRegistrations", "MemberId", "dbo.Members");
+            DropForeignKey("dbo.EventRegistrations", "MemberId", "dbo.Users");
             DropForeignKey("dbo.EventRegistrations", "EventId", "dbo.Events");
-            DropForeignKey("dbo.BorrowingRecords", "Member_Id", "dbo.Members");
             DropForeignKey("dbo.BorrowingRecords", "BookId", "dbo.Books");
             DropIndex("dbo.Reservations", new[] { "MemberId" });
             DropIndex("dbo.Reservations", new[] { "BookId" });
             DropIndex("dbo.Categories", new[] { "CategoryName" });
+            DropIndex("dbo.Reviews", new[] { "User_Id" });
             DropIndex("dbo.Reviews", new[] { "Book_Id" });
-            DropIndex("dbo.Reviews", new[] { "Member_Id" });
             DropIndex("dbo.Reviews", new[] { "MemberId" });
             DropIndex("dbo.Reviews", new[] { "BookId" });
-            DropIndex("dbo.EventRegistrations", new[] { "Member_Id" });
+            DropIndex("dbo.EventRegistrations", new[] { "User_Id" });
             DropIndex("dbo.EventRegistrations", new[] { "MemberId" });
             DropIndex("dbo.EventRegistrations", new[] { "EventId" });
-            DropIndex("dbo.Members", new[] { "Email" });
-            DropIndex("dbo.BorrowingRecords", new[] { "Member_Id" });
+            DropIndex("dbo.Users", new[] { "StaffNumber" });
+            DropIndex("dbo.Users", new[] { "Email" });
+            DropIndex("dbo.BorrowingRecords", new[] { "User_Id" });
             DropIndex("dbo.BorrowingRecords", new[] { "MemberId" });
             DropIndex("dbo.BorrowingRecords", new[] { "BookId" });
             DropIndex("dbo.Books", new[] { "Category_Id" });
@@ -192,7 +197,7 @@
             DropTable("dbo.Reviews");
             DropTable("dbo.Events");
             DropTable("dbo.EventRegistrations");
-            DropTable("dbo.Members");
+            DropTable("dbo.Users");
             DropTable("dbo.BorrowingRecords");
             DropTable("dbo.Books");
         }

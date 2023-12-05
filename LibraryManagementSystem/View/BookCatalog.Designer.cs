@@ -30,10 +30,15 @@
         {
             this.catalogListView = new System.Windows.Forms.ListView();
             this.rentABookButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.catalogTitleTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.catalogAuthorTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.catalogIsbnTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.catalogYearTextBox = new System.Windows.Forms.TextBox();
+            this.catalogReturnButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // catalogListView
@@ -49,7 +54,7 @@
             // rentABookButton
             // 
             this.rentABookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentABookButton.Location = new System.Drawing.Point(503, 229);
+            this.rentABookButton.Location = new System.Drawing.Point(523, 169);
             this.rentABookButton.Name = "rentABookButton";
             this.rentABookButton.Size = new System.Drawing.Size(110, 42);
             this.rentABookButton.TabIndex = 3;
@@ -57,13 +62,13 @@
             this.rentABookButton.UseVisualStyleBackColor = true;
             this.rentABookButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // catalogTitleTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(434, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.catalogTitleTextBox.Location = new System.Drawing.Point(434, 34);
+            this.catalogTitleTextBox.Name = "catalogTitleTextBox";
+            this.catalogTitleTextBox.Size = new System.Drawing.Size(334, 20);
+            this.catalogTitleTextBox.TabIndex = 4;
+            this.catalogTitleTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -86,22 +91,76 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Author:";
             // 
-            // textBox2
+            // catalogAuthorTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(434, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(334, 20);
-            this.textBox2.TabIndex = 7;
+            this.catalogAuthorTextBox.Location = new System.Drawing.Point(434, 62);
+            this.catalogAuthorTextBox.Name = "catalogAuthorTextBox";
+            this.catalogAuthorTextBox.Size = new System.Drawing.Size(334, 20);
+            this.catalogAuthorTextBox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(380, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "ISBN:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // catalogIsbnTextBox
+            // 
+            this.catalogIsbnTextBox.Location = new System.Drawing.Point(434, 116);
+            this.catalogIsbnTextBox.Name = "catalogIsbnTextBox";
+            this.catalogIsbnTextBox.Size = new System.Drawing.Size(334, 20);
+            this.catalogIsbnTextBox.TabIndex = 11;
+            this.catalogIsbnTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(385, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Year:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // catalogYearTextBox
+            // 
+            this.catalogYearTextBox.Location = new System.Drawing.Point(434, 90);
+            this.catalogYearTextBox.Name = "catalogYearTextBox";
+            this.catalogYearTextBox.Size = new System.Drawing.Size(334, 20);
+            this.catalogYearTextBox.TabIndex = 9;
+            this.catalogYearTextBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // catalogReturnButton
+            // 
+            this.catalogReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.catalogReturnButton.Location = new System.Drawing.Point(658, 379);
+            this.catalogReturnButton.Name = "catalogReturnButton";
+            this.catalogReturnButton.Size = new System.Drawing.Size(110, 42);
+            this.catalogReturnButton.TabIndex = 13;
+            this.catalogReturnButton.Text = "Back";
+            this.catalogReturnButton.UseVisualStyleBackColor = true;
+            this.catalogReturnButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // BookCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.catalogReturnButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.catalogIsbnTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.catalogYearTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.catalogAuthorTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.catalogTitleTextBox);
             this.Controls.Add(this.rentABookButton);
             this.Controls.Add(this.catalogListView);
             this.Name = "BookCatalog";
@@ -116,9 +175,14 @@
 
         private System.Windows.Forms.ListView catalogListView;
         private System.Windows.Forms.Button rentABookButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox catalogTitleTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox catalogAuthorTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox catalogIsbnTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox catalogYearTextBox;
+        private System.Windows.Forms.Button catalogReturnButton;
     }
 }
