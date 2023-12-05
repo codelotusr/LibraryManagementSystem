@@ -134,12 +134,6 @@
     <Compile Include="View\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ReportsAndAnalytics.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ReportsAndAnalytics.Designer.cs">
-      <DependentUpon>ReportsAndAnalytics.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\ReservationManagement.cs">
       <SubType>Form</SubType>
     </Compile>

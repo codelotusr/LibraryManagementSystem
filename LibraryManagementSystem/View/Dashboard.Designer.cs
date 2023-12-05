@@ -33,8 +33,8 @@
             this.eventsButton = new System.Windows.Forms.Button();
             this.finesButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.adminPanelButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +57,7 @@
             this.catalogButton.TabIndex = 1;
             this.catalogButton.Text = "Catalog";
             this.catalogButton.UseVisualStyleBackColor = true;
+            this.catalogButton.Click += new System.EventHandler(this.catalogButton_Click);
             // 
             // eventsButton
             // 
@@ -90,35 +91,35 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // adminPanelButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(640, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 62);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Admin Panel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.adminPanelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminPanelButton.Location = new System.Drawing.Point(640, 21);
+            this.adminPanelButton.Name = "adminPanelButton";
+            this.adminPanelButton.Size = new System.Drawing.Size(128, 62);
+            this.adminPanelButton.TabIndex = 5;
+            this.adminPanelButton.Text = "Admin Panel";
+            this.adminPanelButton.UseVisualStyleBackColor = true;
+            this.adminPanelButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // logoutButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(51, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 51);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Logout";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.Location = new System.Drawing.Point(51, 12);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(128, 51);
+            this.logoutButton.TabIndex = 6;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.adminPanelButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.finesButton);
             this.Controls.Add(this.eventsButton);
@@ -138,7 +139,7 @@
         private System.Windows.Forms.Button eventsButton;
         private System.Windows.Forms.Button finesButton;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button adminPanelButton;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

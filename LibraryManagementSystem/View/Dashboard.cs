@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.View;
 
 namespace LibraryManagementSystem
 {
@@ -39,7 +40,16 @@ namespace LibraryManagementSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
 
+        private void catalogButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BookCatalog bookCatalog = new BookCatalog();
+            bookCatalog.Show();
         }
     }
 }
