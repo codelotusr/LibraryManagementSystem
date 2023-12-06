@@ -62,14 +62,24 @@ namespace LibraryManagementSystem.EntityUtils
         {
             try
             {
-                _db.Set<T>().Remove(entity);
-                await _db.SaveChangesAsync();
+                using (var db = new LibraryContext())
+                {
+                    var entry = db.Entry(entity);
+                    if (entry.State == EntityState.Detached)
+                    {
+                        db.Set<T>().Attach(entity);
+                    }
+
+                    db.Set<T>().Remove(entity);
+                    await db.SaveChangesAsync();
+                }
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
 
         public async Task<List<T>> GetAllEntitiesAsync<T>() where T : class
         {

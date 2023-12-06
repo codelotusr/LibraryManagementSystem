@@ -77,6 +77,7 @@
             this.adminPanelReturnButton.TabIndex = 3;
             this.adminPanelReturnButton.Text = "Return";
             this.adminPanelReturnButton.UseVisualStyleBackColor = true;
+            this.adminPanelReturnButton.Click += new System.EventHandler(this.adminPanelReturnButton_Click);
             // 
             // adminPanelManageReservationsButton
             // 

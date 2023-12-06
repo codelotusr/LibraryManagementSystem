@@ -20,8 +20,6 @@ namespace LibraryManagementSystem.View
         {
             InitializeComponent();
             _genericEntity = ServiceLocator.GenericEntity;
-            adminManageCatalogListView.Columns.Add("Title", 200);
-            adminManageCatalogListView.Columns.Add("Author", 150);
             LoadCatalogItemsAsync().ConfigureAwait(false);
         }
 
@@ -33,13 +31,11 @@ namespace LibraryManagementSystem.View
 
             foreach (var item in items)
             {
-                var listViewItem = new ListViewItem((string)item.Title);
-                listViewItem.SubItems.Add((string)item.Author);
-
+                var listViewItem = new ListViewItem(item.ToString());
                 adminManageCatalogListView.Items.Add(listViewItem);
-                adminManageCatalogListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
+
 
         private async Task AddBookAsync()
         {
@@ -69,9 +65,51 @@ namespace LibraryManagementSystem.View
             }
         }
 
+        private async Task DeleteBookAsync()
+        {
+            if (adminManageCatalogListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a book to delete.");
+                return;
+            }
+
+            var selectedItem = adminManageCatalogListView.SelectedItems[0];
+            if (selectedItem.Tag is Book selectedBook)
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this book?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        await _genericEntity.DeleteEntityAsync(selectedBook);
+                        await LoadCatalogItemsAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting book: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
+
+
         private async void adminManageCatalogCreateButton_Click(object sender, EventArgs e)
         {
             await AddBookAsync();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var previousForm = Application.OpenForms.OfType<AdminPanel>().FirstOrDefault();
+            previousForm?.Show();
+            this.Close();
+        }
+
+        private async void adminManageCatalogDeleteButton_Click(object sender, EventArgs e)
+        {
+            await DeleteBookAsync();
         }
 
         private void adminManageCatalogListView_SelectedIndexChanged(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using LibraryManagementSystem.Interfaces;
 
 namespace LibraryManagementSystem.Models
 {
-    public class Book : ILibraryItem
+    public class Book : ILibraryItem, IFormattable
     {
         [Key] public int Id { get; set; }
 
@@ -52,6 +53,26 @@ namespace LibraryManagementSystem.Models
             return $"Book: {Title} by {Author}, published in {PublishedYear}. ISBN: {ISBN}";
         }
 
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            if (String.IsNullOrEmpty(format)) format = "G";
+            if (formatProvider == null) formatProvider = CultureInfo.CurrentCulture;
+
+            switch (format.ToUpperInvariant())
+            {
+                case "G":
+                case "FULL":
+                    return $"Title: {Title}, Author: {Author}, Year: {PublishedYear}, ISBN: {ISBN}";
+                case "BRIEF":
+                    return $"{Title} by {Author}, year {PublishedYear}";
+                default:
+                    throw new FormatException($"The {format} format string is not supported.");
+            }
+        }
+        public override string ToString()
+        {
+            return ToString("G", CultureInfo.CurrentCulture);
+        }
     }
 
     public enum Category

@@ -54,6 +54,9 @@ namespace LibraryManagementSystem.View
             this.label9 = new System.Windows.Forms.Label();
             this.adminManageCatalogDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderYearPublished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // adminManageCatalogCreateButton
@@ -76,6 +79,7 @@ namespace LibraryManagementSystem.View
             this.adminManageCatalogDeleteButton.TabIndex = 1;
             this.adminManageCatalogDeleteButton.Text = "Delete Library Item";
             this.adminManageCatalogDeleteButton.UseVisualStyleBackColor = true;
+            this.adminManageCatalogDeleteButton.Click += new System.EventHandler(this.adminManageCatalogDeleteButton_Click);
             // 
             // button2
             // 
@@ -86,15 +90,21 @@ namespace LibraryManagementSystem.View
             this.button2.TabIndex = 2;
             this.button2.Text = "Return";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // adminManageCatalogListView
             // 
+            this.adminManageCatalogListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTitle,
+            this.columnHeaderAuthor,
+            this.columnHeaderYearPublished});
             this.adminManageCatalogListView.HideSelection = false;
             this.adminManageCatalogListView.Location = new System.Drawing.Point(13, 13);
             this.adminManageCatalogListView.Name = "adminManageCatalogListView";
             this.adminManageCatalogListView.Size = new System.Drawing.Size(348, 298);
             this.adminManageCatalogListView.TabIndex = 3;
             this.adminManageCatalogListView.UseCompatibleStateImageBehavior = false;
+            this.adminManageCatalogListView.View = System.Windows.Forms.View.Details;
             this.adminManageCatalogListView.SelectedIndexChanged += new System.EventHandler(this.adminManageCatalogListView_SelectedIndexChanged);
             // 
             // label1
@@ -268,6 +278,21 @@ namespace LibraryManagementSystem.View
             this.label10.TabIndex = 23;
             this.label10.Text = "Description";
             // 
+            // columnHeaderTitle
+            // 
+            this.columnHeaderTitle.Text = "Title";
+            this.columnHeaderTitle.Width = 120;
+            // 
+            // columnHeaderAuthor
+            // 
+            this.columnHeaderAuthor.Text = "Author";
+            this.columnHeaderAuthor.Width = 120;
+            // 
+            // columnHeaderYearPublished
+            // 
+            this.columnHeaderYearPublished.Text = "Year Published";
+            this.columnHeaderYearPublished.Width = 100;
+            // 
             // AdminManageCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,5 +355,8 @@ namespace LibraryManagementSystem.View
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox adminManageCatalogDescriptionTextBox;
         private System.Windows.Forms.Label label10;
+        private ColumnHeader columnHeaderTitle;
+        private ColumnHeader columnHeaderAuthor;
+        private ColumnHeader columnHeaderYearPublished;
     }
 }

@@ -28,5 +28,12 @@ namespace LibraryManagementSystem.View
         {
 
         }
+
+        private void adminPanelReturnButton_Click(object sender, EventArgs e)
+        {
+            var previousForm = Application.OpenForms.OfType<Dashboard>().FirstOrDefault();
+            previousForm?.Show();
+            this.Close();
+        }
     }
 }
