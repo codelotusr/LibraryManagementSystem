@@ -21,5 +21,10 @@ namespace LibraryManagementSystem.View
         {
 
         }
+
+        private void adminPanelManageEventsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
