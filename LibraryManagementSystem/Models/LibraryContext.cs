@@ -23,11 +23,6 @@ namespace LibraryManagementSystem.Models
                 .Map<Member>(m => m.Requires("UserType").HasValue("Member"))
                 .Map<Staff>(m => m.Requires("UserType").HasValue("Staff"));
 
-            modelBuilder.Entity<Book>()
-                .HasRequired(b => b.Category)
-                .WithMany()
-                .HasForeignKey(b => b.CategoryId);
-
             modelBuilder.Entity<BorrowingRecord>()
                 .HasRequired(br => br.Book)
                 .WithMany(b => b.BorrowingRecords)

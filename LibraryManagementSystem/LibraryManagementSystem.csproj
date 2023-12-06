@@ -134,7 +134,6 @@
     </Compile>
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BorrowingRecord.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\EventRegistration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LibraryContext.cs" />

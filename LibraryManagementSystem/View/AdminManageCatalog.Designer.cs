@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.adminManageCatalogCreateButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.adminManageCatalogDeleteButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.adminManageCatalogListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,16 +63,17 @@
             this.adminManageCatalogCreateButton.TabIndex = 0;
             this.adminManageCatalogCreateButton.Text = "Add Library Item";
             this.adminManageCatalogCreateButton.UseVisualStyleBackColor = true;
+            this.adminManageCatalogCreateButton.Click += new System.EventHandler(this.adminManageCatalogCreateButton_Click);
             // 
-            // button1
+            // adminManageCatalogDeleteButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(630, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 77);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Delete Library Item";
-            this.button1.UseVisualStyleBackColor = true;
+            this.adminManageCatalogDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminManageCatalogDeleteButton.Location = new System.Drawing.Point(630, 361);
+            this.adminManageCatalogDeleteButton.Name = "adminManageCatalogDeleteButton";
+            this.adminManageCatalogDeleteButton.Size = new System.Drawing.Size(158, 77);
+            this.adminManageCatalogDeleteButton.TabIndex = 1;
+            this.adminManageCatalogDeleteButton.Text = "Delete Library Item";
+            this.adminManageCatalogDeleteButton.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -292,7 +293,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.adminManageCatalogListView);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.adminManageCatalogDeleteButton);
             this.Controls.Add(this.adminManageCatalogCreateButton);
             this.Name = "AdminManageCatalog";
             this.Text = "AdminManageCatalog";
@@ -304,7 +305,7 @@
         #endregion
 
         private System.Windows.Forms.Button adminManageCatalogCreateButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button adminManageCatalogDeleteButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView adminManageCatalogListView;
         private System.Windows.Forms.Label label1;

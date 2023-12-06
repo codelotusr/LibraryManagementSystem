@@ -19,7 +19,9 @@ namespace LibraryManagementSystem.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AdminManageCatalog adminManageCatalog = new AdminManageCatalog();
+            adminManageCatalog.Show();
         }
 
         private void adminPanelManageEventsButton_Click(object sender, EventArgs e)

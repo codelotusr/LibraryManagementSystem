@@ -35,7 +35,9 @@ namespace LibraryManagementSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AdminPanel adminPanel = new AdminPanel();
+            adminPanel.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

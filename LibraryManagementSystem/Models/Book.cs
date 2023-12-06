@@ -26,8 +26,7 @@ namespace LibraryManagementSystem.Models
 
         [Required] public int PublishedYear { get; set; }
 
-        [ForeignKey("Category")]
-        [Required] public int CategoryId { get; set; }
+        [Required] public Category Category { get; set; }
 
         [StringLength(100)] public string Edition { get; set; }
 
@@ -36,8 +35,6 @@ namespace LibraryManagementSystem.Models
         [Required] [Range(0, 1000)] public int Quantity { get; set; }
 
         [StringLength(100)] public string ShelfLocation { get; set; }
-
-        public virtual Category Category { get; set; }
 
         public virtual ICollection<BorrowingRecord> BorrowingRecords { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
@@ -55,5 +52,16 @@ namespace LibraryManagementSystem.Models
             return $"Book: {Title} by {Author}, published in {PublishedYear}. ISBN: {ISBN}";
         }
 
+    }
+
+    public enum Category
+    {
+        Fiction,
+        NonFiction,
+        Science,
+        History,
+        Biography,
+        Children,
+        Other
     }
 }
