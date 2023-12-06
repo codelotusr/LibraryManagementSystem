@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,46 +10,73 @@ namespace LibraryManagementSystem.EntityUtils
 {
     public class GenericEntity
     {
-        public void CreateEntity<T>(T entity) where T : class
+        private readonly LibraryContext _db;
+
+        public GenericEntity(LibraryContext db)
         {
-            using (var db = new LibraryContext())
+            _db = db;
+        }
+
+        public async Task CreateEntityAsync<T>(T entity) where T : class
+        {
+            try
             {
-                db.Set<T>().Add(entity);
-                db.SaveChanges();
+                _db.Set<T>().Add(entity);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
-        public void readEntity<T>(T entity) where T : class
+        public async Task<T> ReadEntityAsync<T>(object key) where T : class
         {
-            using (var db = new LibraryContext())
+            try
             {
-                db.Set<T>().Find(entity);
+                return await _db.Set<T>().FindAsync(key);
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
-        public void EditEntity<T>(T entity) where T : class
+        public async Task EditEntityAsync<T>(T entity) where T : class
         {
-            using (var db = new LibraryContext())
+            try
             {
-                db.Set<T>().Update(entity);
-                db.SaveChanges();
+                _db.Set<T>().Update(entity);
+                await _db.SaveChangesAsync();
             }
-        }   
-
-        public void DeleteEntity<T>(T entity) where T : class
-        {
-            using (var db = new LibraryContext())
+            catch (Exception ex)
             {
-                db.Set<T>().Remove(entity);
-                db.SaveChanges();
+                throw;
             }
         }
 
-        public List<T> GetAllEntities<T>() where T : class
+        public async Task DeleteEntityAsync<T>(T entity) where T : class
         {
-            using (var db = new LibraryContext())
+            try
             {
-                return db.Set<T>().ToList();
+                _db.Set<T>().Remove(entity);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<T>> GetAllEntitiesAsync<T>() where T : class
+        {
+            try
+            {
+                return await _db.Set<T>().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }
