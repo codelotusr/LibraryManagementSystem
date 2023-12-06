@@ -27,11 +27,16 @@ namespace LibraryManagementSystem.View
         {
             var items = await _genericEntity.GetAllEntitiesAsync<Book>();
 
+            var sortedItems = items.OrderBy(item => item.Title).ToList();
+
             adminManageCatalogListView.Items.Clear();
 
-            foreach (var item in items)
+            foreach (var item in sortedItems)
             {
-                var listViewItem = new ListViewItem(item.ToString());
+                var listViewItem = new ListViewItem(item.Title);
+                listViewItem.SubItems.Add(item.Author);
+                listViewItem.SubItems.Add(item.PublishedYear.ToString());
+
                 adminManageCatalogListView.Items.Add(listViewItem);
             }
         }
@@ -41,7 +46,6 @@ namespace LibraryManagementSystem.View
         {
             try
             {
-
                 var newBook = new Book
                 {
                     Title = adminManageCatalogTitleTextBox.Text,

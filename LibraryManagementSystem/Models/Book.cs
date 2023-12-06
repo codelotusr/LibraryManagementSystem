@@ -10,7 +10,7 @@ using LibraryManagementSystem.Interfaces;
 
 namespace LibraryManagementSystem.Models
 {
-    public class Book : ILibraryItem, IFormattable
+    public class Book : ILibraryItem, IFormattable, IComparable<Book>, IEquatable<Book>
     {
         [Key] public int Id { get; set; }
 
@@ -73,6 +73,38 @@ namespace LibraryManagementSystem.Models
         {
             return ToString("G", CultureInfo.CurrentCulture);
         }
+
+        public int CompareTo(Book other)
+        {
+            if (other == null) return 1;
+            return this.PublishedYear.CompareTo(other.PublishedYear);
+        }
+
+        public bool Equals(Book other)
+        {
+            if (other == null)
+                return false;
+
+            return this.ISBN == other.ISBN;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            Book bookObj = obj as Book;
+            if (bookObj == null)
+                return false;
+            else
+                return Equals(bookObj);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ISBN.GetHashCode();
+        }
+
     }
 
     public enum Category
