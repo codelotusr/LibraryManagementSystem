@@ -42,12 +42,15 @@ namespace LibraryManagementSystem.EntityUtils
             }
         }
 
-        public async Task EditEntityAsync<T>(T entity) where T : class
+        public void EditEntity<T>(T entity) where T : class
         {
             try
             {
-                _db.Set<T>().Update(entity);
-                await _db.SaveChangesAsync();
+                using (var db = new LibraryContext())
+                {
+                    db.Entry(entity).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {

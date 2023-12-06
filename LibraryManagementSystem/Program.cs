@@ -13,6 +13,7 @@ namespace LibraryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ServiceLocator.InitializeServices();
             Application.Run(new Login());
         }
     }
