@@ -63,9 +63,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312051542225_InitialMigration.cs" />
-    <Compile Include="Migrations\202312051542225_InitialMigration.designer.cs">
-      <DependentUpon>202312051542225_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202312061827014_InitialMigration.cs" />
+    <Compile Include="Migrations\202312061827014_InitialMigration.designer.cs">
+      <DependentUpon>202312061827014_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312061838292_ChangesToCategoryMade.cs" />
+    <Compile Include="Migrations\202312061838292_ChangesToCategoryMade.designer.cs">
+      <DependentUpon>202312061838292_ChangesToCategoryMade.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -162,8 +166,11 @@
     <Compile Include="View\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202312051542225_InitialMigration.resx">
-      <DependentUpon>202312051542225_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312061827014_InitialMigration.resx">
+      <DependentUpon>202312061827014_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312061838292_ChangesToCategoryMade.resx">
+      <DependentUpon>202312061838292_ChangesToCategoryMade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminManageCatalog.resx">
       <DependentUpon>AdminManageCatalog.cs</DependentUpon>

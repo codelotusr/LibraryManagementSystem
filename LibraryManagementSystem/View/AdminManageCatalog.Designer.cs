@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem.View
+﻿using System.Windows.Forms;
+
+namespace LibraryManagementSystem.View
 {
     partial class AdminManageCatalog
     {
@@ -50,7 +52,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.adminManageCatalogLocationTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.adminManageCatalogDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -248,13 +250,13 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Location:";
             // 
-            // textBox10
+            // adminManageCatalogDescriptionTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(469, 200);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(319, 155);
-            this.textBox10.TabIndex = 22;
+            this.adminManageCatalogDescriptionTextBox.Location = new System.Drawing.Point(469, 200);
+            this.adminManageCatalogDescriptionTextBox.Multiline = true;
+            this.adminManageCatalogDescriptionTextBox.Name = "adminManageCatalogDescriptionTextBox";
+            this.adminManageCatalogDescriptionTextBox.Size = new System.Drawing.Size(319, 155);
+            this.adminManageCatalogDescriptionTextBox.TabIndex = 22;
             // 
             // label10
             // 
@@ -272,7 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.adminManageCatalogDescriptionTextBox);
             this.Controls.Add(this.adminManageCatalogLocationTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.adminManageCatalogQuantityTextBox);
@@ -326,7 +328,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox adminManageCatalogLocationTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox adminManageCatalogDescriptionTextBox;
         private System.Windows.Forms.Label label10;
     }
 }

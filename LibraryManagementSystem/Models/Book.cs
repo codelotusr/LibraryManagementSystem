@@ -26,7 +26,7 @@ namespace LibraryManagementSystem.Models
 
         [Required] public int PublishedYear { get; set; }
 
-        [Required] public Category Category { get; set; }
+        [Required] public string Category { get; set; }
 
         [StringLength(100)] public string Edition { get; set; }
 

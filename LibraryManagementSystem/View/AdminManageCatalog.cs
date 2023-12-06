@@ -20,6 +20,8 @@ namespace LibraryManagementSystem.View
         {
             InitializeComponent();
             _genericEntity = ServiceLocator.GenericEntity;
+            adminManageCatalogListView.Columns.Add("Title", 200);
+            adminManageCatalogListView.Columns.Add("Author", 150);
             LoadCatalogItemsAsync().ConfigureAwait(false);
         }
 
@@ -35,6 +37,7 @@ namespace LibraryManagementSystem.View
                 listViewItem.SubItems.Add((string)item.Author);
 
                 adminManageCatalogListView.Items.Add(listViewItem);
+                adminManageCatalogListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
 
@@ -49,7 +52,12 @@ namespace LibraryManagementSystem.View
                     Author = adminManageCatalogAuthorTextBox.Text,
                     ISBN = adminManageCatalogIsbnTextBox.Text,
                     PublishedYear = int.Parse(adminManageCatalogYearTextBox.Text),
-
+                    Category = adminManageCatalogCategoryTextBox.Text,
+                    Description = adminManageCatalogDescriptionTextBox.Text,
+                    Quantity = int.Parse(adminManageCatalogQuantityTextBox.Text),
+                    Price = int.Parse(adminManageCatalogPriceTextBox.Text),
+                    Edition = adminManageCatalogEditionTextBox.Text,
+                    ShelfLocation = adminManageCatalogLocationTextBox.Text
                 };
 
                 await _genericEntity.CreateEntityAsync(newBook);
@@ -61,14 +69,12 @@ namespace LibraryManagementSystem.View
             }
         }
 
-
-
-        private void adminManageCatalogListView_SelectedIndexChanged(object sender, EventArgs e)
+        private async void adminManageCatalogCreateButton_Click(object sender, EventArgs e)
         {
-
+            await AddBookAsync();
         }
 
-        private void adminManageCatalogCreateButton_Click(object sender, EventArgs e)
+        private void adminManageCatalogListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

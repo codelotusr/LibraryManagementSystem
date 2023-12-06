@@ -17,19 +17,14 @@
                         Description = c.String(maxLength: 100),
                         ISBN = c.String(nullable: false, maxLength: 13),
                         PublishedYear = c.Int(nullable: false),
-                        CategoryId = c.Int(nullable: false),
+                        Category = c.Int(nullable: false),
                         Edition = c.String(maxLength: 100),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Quantity = c.Int(nullable: false),
                         ShelfLocation = c.String(maxLength: 100),
-                        Category_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.Category_Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
-                .Index(t => t.ISBN, unique: true)
-                .Index(t => t.CategoryId)
-                .Index(t => t.Category_Id);
+                .Index(t => t.ISBN, unique: true);
             
             CreateTable(
                 "dbo.BorrowingRecords",
@@ -128,16 +123,6 @@
                 .Index(t => t.User_Id);
             
             CreateTable(
-                "dbo.Categories",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CategoryName = c.String(nullable: false, maxLength: 100),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.CategoryName, unique: true);
-            
-            CreateTable(
                 "dbo.Reservations",
                 c => new
                     {
@@ -166,8 +151,6 @@
             DropForeignKey("dbo.Reviews", "Book_Id", "dbo.Books");
             DropForeignKey("dbo.Reservations", "MemberId", "dbo.Users");
             DropForeignKey("dbo.Reservations", "BookId", "dbo.Books");
-            DropForeignKey("dbo.Books", "CategoryId", "dbo.Categories");
-            DropForeignKey("dbo.Books", "Category_Id", "dbo.Categories");
             DropForeignKey("dbo.BorrowingRecords", "MemberId", "dbo.Users");
             DropForeignKey("dbo.Reviews", "MemberId", "dbo.Users");
             DropForeignKey("dbo.Reviews", "BookId", "dbo.Books");
@@ -176,7 +159,6 @@
             DropForeignKey("dbo.BorrowingRecords", "BookId", "dbo.Books");
             DropIndex("dbo.Reservations", new[] { "MemberId" });
             DropIndex("dbo.Reservations", new[] { "BookId" });
-            DropIndex("dbo.Categories", new[] { "CategoryName" });
             DropIndex("dbo.Reviews", new[] { "User_Id" });
             DropIndex("dbo.Reviews", new[] { "Book_Id" });
             DropIndex("dbo.Reviews", new[] { "MemberId" });
@@ -189,11 +171,8 @@
             DropIndex("dbo.BorrowingRecords", new[] { "User_Id" });
             DropIndex("dbo.BorrowingRecords", new[] { "MemberId" });
             DropIndex("dbo.BorrowingRecords", new[] { "BookId" });
-            DropIndex("dbo.Books", new[] { "Category_Id" });
-            DropIndex("dbo.Books", new[] { "CategoryId" });
             DropIndex("dbo.Books", new[] { "ISBN" });
             DropTable("dbo.Reservations");
-            DropTable("dbo.Categories");
             DropTable("dbo.Reviews");
             DropTable("dbo.Events");
             DropTable("dbo.EventRegistrations");
