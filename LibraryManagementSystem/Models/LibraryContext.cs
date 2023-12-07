@@ -21,7 +21,6 @@ namespace LibraryManagementSystem.Models
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventRegistration> EventRegistrations { get; set; }
-        public DbSet<MemberType> MemberTypes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

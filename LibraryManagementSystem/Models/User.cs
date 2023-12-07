@@ -9,6 +9,9 @@ namespace LibraryManagementSystem.Models
         public int Id { get; set; }
 
         [Required]
+        public string UserIdentification { get; set; }
+
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
 

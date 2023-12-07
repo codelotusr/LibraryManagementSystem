@@ -75,6 +75,14 @@
     <Compile Include="Migrations\202312071010173_UpdateToDb1.designer.cs">
       <DependentUpon>202312071010173_UpdateToDb1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312071101482_UpdateToUserLogic.cs" />
+    <Compile Include="Migrations\202312071101482_UpdateToUserLogic.designer.cs">
+      <DependentUpon>202312071101482_UpdateToUserLogic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312071121223_MigrationUserIdLogicUpdate.cs" />
+    <Compile Include="Migrations\202312071121223_MigrationUserIdLogicUpdate.designer.cs">
+      <DependentUpon>202312071121223_MigrationUserIdLogicUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\User.cs" />
@@ -147,7 +155,6 @@
     <Compile Include="Models\LibraryContext.cs" />
     <Compile Include="Models\Magazine.cs" />
     <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\MemberType.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Program.cs" />
@@ -179,6 +186,12 @@
     <EmbeddedResource Include="Migrations\202312071010173_UpdateToDb1.resx">
       <DependentUpon>202312071010173_UpdateToDb1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312071101482_UpdateToUserLogic.resx">
+      <DependentUpon>202312071101482_UpdateToUserLogic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312071121223_MigrationUserIdLogicUpdate.resx">
+      <DependentUpon>202312071121223_MigrationUserIdLogicUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminManageCatalog.resx">
       <DependentUpon>AdminManageCatalog.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +217,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="LibraryDatabaseDataSet.xsc">
       <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
     </None>
