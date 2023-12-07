@@ -15,6 +15,14 @@ namespace LibraryManagementSystem.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Staff> Staff { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<BorrowingRecord> BorrowingRecords { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventRegistration> EventRegistrations { get; set; }
+        public DbSet<MemberType> MemberTypes { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,7 +46,6 @@ namespace LibraryManagementSystem.Models
                 .WithMany(b => b.Reservations)
                 .HasForeignKey(r => r.BookId)
                 .WillCascadeOnDelete(false); 
-
 
             modelBuilder.Entity<Reservation>()
                 .HasRequired(r => r.Member)

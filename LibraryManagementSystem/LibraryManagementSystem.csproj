@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202312061838292_ChangesToCategoryMade.designer.cs">
       <DependentUpon>202312061838292_ChangesToCategoryMade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312071010173_UpdateToDb1.cs" />
+    <Compile Include="Migrations\202312071010173_UpdateToDb1.designer.cs">
+      <DependentUpon>202312071010173_UpdateToDb1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\User.cs" />
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312061838292_ChangesToCategoryMade.resx">
       <DependentUpon>202312061838292_ChangesToCategoryMade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312071010173_UpdateToDb1.resx">
+      <DependentUpon>202312071010173_UpdateToDb1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminManageCatalog.resx">
       <DependentUpon>AdminManageCatalog.cs</DependentUpon>
