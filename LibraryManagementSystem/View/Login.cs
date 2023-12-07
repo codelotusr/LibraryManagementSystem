@@ -73,5 +73,12 @@ namespace LibraryManagementSystem
         {
 
         }
+
+        private void loginRegisterButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Register register = new Register();
+            register.Show();
+        }
     }
 }

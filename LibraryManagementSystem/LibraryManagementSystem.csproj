@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202312071121223_MigrationUserIdLogicUpdate.designer.cs">
       <DependentUpon>202312071121223_MigrationUserIdLogicUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312071135498_StaffNumberLogicUpdate.cs" />
+    <Compile Include="Migrations\202312071135498_StaffNumberLogicUpdate.designer.cs">
+      <DependentUpon>202312071135498_StaffNumberLogicUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\User.cs" />
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312071121223_MigrationUserIdLogicUpdate.resx">
       <DependentUpon>202312071121223_MigrationUserIdLogicUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312071135498_StaffNumberLogicUpdate.resx">
+      <DependentUpon>202312071135498_StaffNumberLogicUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminManageCatalog.resx">
       <DependentUpon>AdminManageCatalog.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.EntityUtils;
 using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem
@@ -22,7 +23,7 @@ namespace LibraryManagementSystem
             InitializeComponent();
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
+        private async void registerButton_Click(object sender, EventArgs e)
         {
             string name = registerNameTextBox.Text;
             string email = registerEmailTextBox.Text;
@@ -30,38 +31,24 @@ namespace LibraryManagementSystem
             string confirmPassword = registerConfirmPasswordTextBox.Text;
             string address = registerAddressTextBox.Text;
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                string.IsNullOrEmpty(confirmPassword) || string.IsNullOrEmpty(address))
-            {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-
-            if (!Regex.IsMatch(name, @"^[a-zA-Z\s]+$"))
-            {
-                MessageBox.Show("Invalid name format.");
-                return;
-            }
-
-            if (!Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
-            {
-                MessageBox.Show("Invalid email format.");
-                return;
-            }
-
-            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
-            {
-                MessageBox.Show("Invalid password format.");
-                return;
-            }
-
-            if (!password.Equals(confirmPassword))
-            {
-                MessageBox.Show("Passwords do not match.");
-                return;
-            }
-
             string userId = GenerateUniqueUserId();
+            string hashedPassword = HashPassword(password);
+
+            User newUser = new Staff
+            {
+                UserIdentification = userId,
+                Name = name,
+                Email = email,
+                PasswordHash = hashedPassword,
+                Address = address,
+                StaffNumber = userId,
+                isAdmin = true
+            };
+
+            GenericEntity genericEntity = new GenericEntity(_db);
+            await genericEntity.CreateEntityAsync(newUser);
+
+            MessageBox.Show("Registration successful.");
 
 
         }
@@ -81,7 +68,6 @@ namespace LibraryManagementSystem
 
             return userId;
         }
-        
 
         private static string HashPassword(string password)
         {

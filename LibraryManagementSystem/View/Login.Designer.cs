@@ -36,6 +36,7 @@ namespace LibraryManagementSystem
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.loginRegisterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userIdLabel
@@ -97,11 +98,23 @@ namespace LibraryManagementSystem
             this.label1.TabIndex = 6;
             this.label1.Text = "Library";
             // 
+            // loginRegisterButton
+            // 
+            this.loginRegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginRegisterButton.Location = new System.Drawing.Point(207, 339);
+            this.loginRegisterButton.Name = "loginRegisterButton";
+            this.loginRegisterButton.Size = new System.Drawing.Size(407, 45);
+            this.loginRegisterButton.TabIndex = 7;
+            this.loginRegisterButton.Text = "Register";
+            this.loginRegisterButton.UseVisualStyleBackColor = true;
+            this.loginRegisterButton.Click += new System.EventHandler(this.loginRegisterButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginRegisterButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
@@ -124,5 +137,6 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button loginRegisterButton;
     }
 }
