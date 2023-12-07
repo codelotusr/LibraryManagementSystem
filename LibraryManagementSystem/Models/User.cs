@@ -16,14 +16,11 @@ namespace LibraryManagementSystem.Models
         public string Name { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
         [StringLength(100)]
-        [Index(IsUnique = true)]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100)]
-        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
         [Required]
