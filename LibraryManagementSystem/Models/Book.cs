@@ -105,6 +105,21 @@ namespace LibraryManagementSystem.Models
             return this.ISBN.GetHashCode();
         }
 
+        public static bool operator ==(Book left, Book right)
+        {
+            if (object.ReferenceEquals(left, null))
+            {
+                return object.ReferenceEquals(right, null);
+            }
+
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Book left, Book right)
+        {
+            return !(left == right);
+        }
+
     }
 
     public enum Category
