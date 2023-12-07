@@ -16,11 +16,12 @@ namespace LibraryManagementSystem
 {
     public partial class Register : Form
     {
-        private LibraryContext _db = new LibraryContext();
+        private LibraryContext _db;
 
         public Register()
         {
             InitializeComponent();
+            _db = ServiceLocator.LibraryContext;
         }
 
         private async void registerButton_Click(object sender, EventArgs e)
@@ -158,14 +159,5 @@ namespace LibraryManagementSystem
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

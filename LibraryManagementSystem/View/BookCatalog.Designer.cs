@@ -143,7 +143,7 @@
             this.catalogReturnButton.Name = "catalogReturnButton";
             this.catalogReturnButton.Size = new System.Drawing.Size(110, 42);
             this.catalogReturnButton.TabIndex = 13;
-            this.catalogReturnButton.Text = "Back";
+            this.catalogReturnButton.Text = "Return";
             this.catalogReturnButton.UseVisualStyleBackColor = true;
             this.catalogReturnButton.Click += new System.EventHandler(this.button1_Click);
             // 

@@ -85,8 +85,9 @@ namespace LibraryManagementSystem.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Application.OpenForms["Dashboard"].Show();
+            var previousForm = Application.OpenForms.OfType<Dashboard>().FirstOrDefault();
+            previousForm?.Show();
+            this.Close();
         }
     }
 }

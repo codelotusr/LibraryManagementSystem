@@ -113,12 +113,6 @@
     <Compile Include="View\BookCatalog.Designer.cs">
       <DependentUpon>BookCatalog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BookDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\BookDetails.Designer.cs">
-      <DependentUpon>BookDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\BorrowingHistory.cs">
       <SubType>Form</SubType>
     </Compile>

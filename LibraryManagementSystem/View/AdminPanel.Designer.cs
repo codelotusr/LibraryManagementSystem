@@ -56,6 +56,7 @@
             this.adminPanelManageFinesButton.TabIndex = 1;
             this.adminPanelManageFinesButton.Text = "Manage Fines";
             this.adminPanelManageFinesButton.UseVisualStyleBackColor = true;
+            this.adminPanelManageFinesButton.Click += new System.EventHandler(this.adminPanelManageFinesButton_Click);
             // 
             // adminPanelManageEventsButton
             // 

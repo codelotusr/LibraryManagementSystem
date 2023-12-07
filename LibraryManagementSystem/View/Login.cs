@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Models;
+﻿using LibraryManagementSystem.EntityUtils;
+using LibraryManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,11 @@ namespace LibraryManagementSystem
 {
     public partial class Login : Form
     {
-        private LibraryContext _db = new LibraryContext();
+        private readonly LibraryContext _db;
         public Login()
         {
             InitializeComponent();
+            _db = ServiceLocator.LibraryContext;
         }
 
         private void button2_Click(object sender, EventArgs e)
