@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem
+namespace LibraryManagementSystem.View
 {
-    public partial class MemberManagement : Form
+    public partial class ManageUsers : Form
     {
-        public MemberManagement()
+        public ManageUsers()
         {
             InitializeComponent();
         }

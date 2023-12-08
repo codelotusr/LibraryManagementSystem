@@ -99,6 +99,7 @@
             this.adminPanelManageUsersButton.TabIndex = 5;
             this.adminPanelManageUsersButton.Text = "Manage Users";
             this.adminPanelManageUsersButton.UseVisualStyleBackColor = true;
+            this.adminPanelManageUsersButton.Click += new System.EventHandler(this.adminPanelManageUsersButton_Click);
             // 
             // AdminPanel
             // 

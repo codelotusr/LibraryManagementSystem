@@ -40,5 +40,12 @@ namespace LibraryManagementSystem.View
         {
 
         }
+
+        private void adminPanelManageUsersButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MUsers manageUsers = new ManageUsers();
+            manageUsers.Show();
+        }
     }
 }

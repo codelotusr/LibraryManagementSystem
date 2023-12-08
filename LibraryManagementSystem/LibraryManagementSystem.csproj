@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LibraryDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202312061827014_InitialMigration.cs" />
     <Compile Include="Migrations\202312061827014_InitialMigration.designer.cs">
       <DependentUpon>202312061827014_InitialMigration.cs</DependentUpon>
@@ -238,6 +243,17 @@
     </None>
     <None Include="LibraryDatabaseDataSet.xss">
       <DependentUpon>LibraryDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryDatabaseDataSet1.xsc">
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibraryDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LibraryDatabaseDataSet1.xss">
+      <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
