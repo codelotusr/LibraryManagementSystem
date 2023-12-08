@@ -39,16 +39,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.catalogYearTextBox = new System.Windows.Forms.TextBox();
             this.catalogReturnButton = new System.Windows.Forms.Button();
+            this.catalogTitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.catalogAuthorColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.catalogYearColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // catalogListView
             // 
+            this.catalogListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.catalogTitleColumn,
+            this.catalogAuthorColumn,
+            this.catalogYearColumn});
             this.catalogListView.HideSelection = false;
             this.catalogListView.Location = new System.Drawing.Point(12, 35);
             this.catalogListView.Name = "catalogListView";
             this.catalogListView.Size = new System.Drawing.Size(347, 386);
             this.catalogListView.TabIndex = 0;
             this.catalogListView.UseCompatibleStateImageBehavior = false;
+            this.catalogListView.View = System.Windows.Forms.View.Details;
             this.catalogListView.SelectedIndexChanged += new System.EventHandler(this.catalogListView_SelectedIndexChanged);
             // 
             // rentABookButton
@@ -147,6 +155,21 @@
             this.catalogReturnButton.UseVisualStyleBackColor = true;
             this.catalogReturnButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // catalogTitleColumn
+            // 
+            this.catalogTitleColumn.Text = "Title";
+            this.catalogTitleColumn.Width = 141;
+            // 
+            // catalogAuthorColumn
+            // 
+            this.catalogAuthorColumn.Text = "Author";
+            this.catalogAuthorColumn.Width = 132;
+            // 
+            // catalogYearColumn
+            // 
+            this.catalogYearColumn.Text = "Year";
+            this.catalogYearColumn.Width = 72;
+            // 
             // BookCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +207,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox catalogYearTextBox;
         private System.Windows.Forms.Button catalogReturnButton;
+        private System.Windows.Forms.ColumnHeader catalogTitleColumn;
+        private System.Windows.Forms.ColumnHeader catalogAuthorColumn;
+        private System.Windows.Forms.ColumnHeader catalogYearColumn;
     }
 }

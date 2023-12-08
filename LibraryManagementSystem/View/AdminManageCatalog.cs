@@ -15,11 +15,13 @@ namespace LibraryManagementSystem.View
 {
     public partial class AdminManageCatalog : Form
     {
+        private LibraryContext _context;
         private readonly GenericEntity _genericEntity;
         public AdminManageCatalog()
         {
             InitializeComponent();
             _genericEntity = ServiceLocator.GenericEntity;
+            _context = ServiceLocator.LibraryContext;
             LoadCatalogItemsAsync().ConfigureAwait(false);
         }
 
@@ -118,7 +120,14 @@ namespace LibraryManagementSystem.View
 
         private void adminManageCatalogListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (adminManageCatalogListView.SelectedItems.Count > 0)
+            {
+                var selectedItem = adminManageCatalogListView.SelectedItems[0];
+                var selectedItemTitle = selectedItem.SubItems[0].Text;
+                var selectedItemAuthor = selectedItem.SubItems[1].Text;
+                var selectedItemYear = selectedItem.SubItems[2].Text;
 
+            }
         }
     }
 }

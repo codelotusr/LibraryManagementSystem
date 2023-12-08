@@ -19,9 +19,9 @@ namespace LibraryManagementSystem.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var previousForm = Application.OpenForms.OfType<Dashboard>().FirstOrDefault();
-            previousForm?.Show();
-            this.Close();
+            this.Hide();
+            AdminManageCatalog adminManageCatalog = new AdminManageCatalog();
+            adminManageCatalog.Show();
         }
 
         private void adminPanelManageEventsButton_Click(object sender, EventArgs e)
@@ -44,8 +44,6 @@ namespace LibraryManagementSystem.View
         private void adminPanelManageUsersButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MUsers manageUsers = new ManageUsers();
-            manageUsers.Show();
         }
     }
 }

@@ -99,7 +99,7 @@ namespace LibraryManagementSystem.View
             this.columnHeaderAuthor,
             this.columnHeaderYearPublished});
             this.adminManageCatalogListView.HideSelection = false;
-            this.adminManageCatalogListView.Location = new System.Drawing.Point(13, 13);
+            this.adminManageCatalogListView.Location = new System.Drawing.Point(13, 11);
             this.adminManageCatalogListView.Name = "adminManageCatalogListView";
             this.adminManageCatalogListView.Size = new System.Drawing.Size(348, 298);
             this.adminManageCatalogListView.TabIndex = 3;
@@ -110,12 +110,12 @@ namespace LibraryManagementSystem.View
             // columnHeaderTitle
             // 
             this.columnHeaderTitle.Text = "Title";
-            this.columnHeaderTitle.Width = 120;
+            this.columnHeaderTitle.Width = 128;
             // 
             // columnHeaderAuthor
             // 
             this.columnHeaderAuthor.Text = "Author";
-            this.columnHeaderAuthor.Width = 120;
+            this.columnHeaderAuthor.Width = 128;
             // 
             // columnHeaderYearPublished
             // 

@@ -59,7 +59,22 @@ namespace LibraryManagementSystem.View
 
         private void catalogListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (catalogListView.SelectedItems.Count > 0)
+            {
+                var selectedItem = catalogListView.SelectedItems[0];
+                var selectedItemTitle = selectedItem.SubItems[0].Text;
+                var selectedItemAuthor = selectedItem.SubItems[1].Text;
+                var selectedItemYear = selectedItem.SubItems[2].Text;
 
+                var selectedItemDetails = _context.Books.FirstOrDefault(item =>
+                                       item.Title == selectedItemTitle && item.Author == selectedItemAuthor &&
+                                                          item.PublishedYear.ToString() == selectedItemYear);
+
+                catalogTitleTextBox.Text = selectedItemDetails.Title;
+                catalogAuthorTextBox.Text = selectedItemDetails.Author;
+                catalogIsbnTextBox.Text = selectedItemDetails.ISBN;
+                catalogYearTextBox.Text = selectedItemDetails.PublishedYear.ToString();
+            }
         }
 
         private void BookCatalog_Load(object sender, EventArgs e)
