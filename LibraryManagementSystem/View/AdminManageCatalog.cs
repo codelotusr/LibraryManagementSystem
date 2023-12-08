@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.Models;
+using System.Data.Entity;
 
 namespace LibraryManagementSystem.View
 {
@@ -38,6 +39,7 @@ namespace LibraryManagementSystem.View
                 var listViewItem = new ListViewItem(item.Title);
                 listViewItem.SubItems.Add(item.Author);
                 listViewItem.SubItems.Add(item.PublishedYear.ToString());
+                listViewItem.Tag = item;
 
                 adminManageCatalogListView.Items.Add(listViewItem);
             }
@@ -142,11 +144,13 @@ namespace LibraryManagementSystem.View
             var selectedItem = adminManageCatalogListView.SelectedItems[0];
             if (selectedItem.Tag is Book selectedBook)
             {
+                MessageBox.Show($"Selected book: {selectedBook.Title}");
                 var confirmResult = MessageBox.Show("Are you sure to delete this book?", "Confirm Delete", MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
                     try
                     {
+                        _context.Entry(selectedBook).State = EntityState.Detached;
                         await _genericEntity.DeleteEntityAsync(selectedBook);
                         await LoadCatalogItemsAsync();
                     }
@@ -155,6 +159,10 @@ namespace LibraryManagementSystem.View
                         MessageBox.Show("Error deleting book: " + ex.Message);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Selected item's tag is not a book.");
             }
         }
 
