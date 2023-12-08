@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Core;
 
 namespace LibraryManagementSystem
 {
@@ -44,6 +45,7 @@ namespace LibraryManagementSystem
             var user = _db.User.FirstOrDefault(u => u.UserIdentification == userId && u.PasswordHash == hashedPassword);
             if (user != null)
             {
+                GlobalUserState.CurrentUserId = user.Id;
                 if (user is Staff)
                 {
                     MessageBox.Show("Welcome, Staff Member!");

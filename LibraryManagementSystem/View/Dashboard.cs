@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Core;
 using LibraryManagementSystem.View;
 
 namespace LibraryManagementSystem
@@ -42,6 +43,7 @@ namespace LibraryManagementSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            GlobalUserState.CurrentUserId = 0;
             this.Hide();
             Login login = new Login();
             login.Show();

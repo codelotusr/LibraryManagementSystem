@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Core;
 using LibraryManagementSystem.EntityUtils;
 using LibraryManagementSystem.Models;
 
@@ -42,19 +43,46 @@ namespace LibraryManagementSystem.View
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void rentABookButton_Click(object sender, EventArgs e)
         {
+            if (catalogListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a book to rent");
+                return;
+            }
 
-        }
+            var selectedItem = catalogListView.SelectedItems[0];
+            var title = selectedItem.SubItems[0].Text;
+            var author = selectedItem.SubItems[1].Text;
+            var publishedYear = selectedItem.SubItems[2].Text;
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+            var selectedItemDetails = _context.Books.FirstOrDefault(item => item.Title == title && item.Author == author && item.PublishedYear.ToString() == publishedYear);
+            if (selectedItemDetails == null)
+            {
+                MessageBox.Show("Selected book not found");
+                return;
+            }
 
-        }
+            int currentMemberId = GlobalUserState.CurrentUserId;
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            var borrowingRecord = new BorrowingRecord
+            {
+                BookId = selectedItemDetails.Id,
+                MemberId = currentMemberId,
+                Status = BorrowingStatus.Borrowed,
+                BorrowedDate = DateTime.Now,
+                DueDate = DateTime.Now.AddDays(14)
+            };
 
+            try
+            {
+                await _genericEntity.CreateEntityAsync(borrowingRecord);
+                MessageBox.Show("Book rented successfully");
+            }
+            catch
+            {
+                MessageBox.Show("An error occurred while renting the book");
+            }
         }
 
         private void catalogListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,30 +102,13 @@ namespace LibraryManagementSystem.View
                 catalogAuthorTextBox.Text = selectedItemDetails.Author;
                 catalogIsbnTextBox.Text = selectedItemDetails.ISBN;
                 catalogYearTextBox.Text = selectedItemDetails.PublishedYear.ToString();
+                catalogCategoryTextBox.Text = selectedItemDetails.Category;
+                catalogEditionTextBox.Text = selectedItemDetails.Edition;
+                catalogDescriptionTextBox.Text = selectedItemDetails.Description;
             }
         }
 
         private void BookCatalog_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
         {
 
         }
