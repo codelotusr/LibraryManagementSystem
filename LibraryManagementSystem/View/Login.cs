@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace LibraryManagementSystem
         {
             string userId = userIdTextBox.Text;
             string password = passwordTextBox.Text;
+            string hashedPassword = HashPassword(password);
 
             if (string.IsNullOrWhiteSpace(userId))
             {
@@ -39,7 +41,7 @@ namespace LibraryManagementSystem
                 return;
             }
 
-            var user = _db.User.FirstOrDefault(u => u.Email == userId && u.PasswordHash == password);
+            var user = _db.User.FirstOrDefault(u => u.UserIdentification == userId && u.PasswordHash == hashedPassword);
             if (user != null)
             {
                 if (user is Staff)
@@ -61,23 +63,7 @@ namespace LibraryManagementSystem
             }
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-
         private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userIdTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -87,6 +73,26 @@ namespace LibraryManagementSystem
             this.Hide();
             Register register = new Register();
             register.Show();
+        }
+
+        private static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    stringBuilder.Append(bytes[i].ToString("x2"));
+                }
+                return stringBuilder.ToString();
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement a way to recover UserID with email
         }
     }
 }

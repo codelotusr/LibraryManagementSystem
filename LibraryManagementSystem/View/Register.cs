@@ -94,7 +94,7 @@ namespace LibraryManagementSystem
                 await genericEntity.CreateEntityAsync(newStaff);
 
                 MessageBox.Show("Registration successful.");
-
+                MessageBox.Show("Your UserID is : " + userId);
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {

@@ -37,6 +37,8 @@ namespace LibraryManagementSystem
             this.loginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.loginRegisterButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userIdLabel
@@ -48,7 +50,6 @@ namespace LibraryManagementSystem
             this.userIdLabel.Size = new System.Drawing.Size(89, 25);
             this.userIdLabel.TabIndex = 0;
             this.userIdLabel.Text = "User ID:";
-            this.userIdLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // passwordLabel
             // 
@@ -66,7 +67,6 @@ namespace LibraryManagementSystem
             this.userIdTextBox.Name = "userIdTextBox";
             this.userIdTextBox.Size = new System.Drawing.Size(408, 20);
             this.userIdTextBox.TabIndex = 2;
-            this.userIdTextBox.TextChanged += new System.EventHandler(this.userIdTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -75,7 +75,6 @@ namespace LibraryManagementSystem
             this.passwordTextBox.Size = new System.Drawing.Size(407, 20);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.UseSystemPasswordChar = true;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // loginButton
             // 
@@ -109,11 +108,36 @@ namespace LibraryManagementSystem
             this.loginRegisterButton.UseVisualStyleBackColor = true;
             this.loginRegisterButton.Click += new System.EventHandler(this.loginRegisterButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(289, 404);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Forgot your UserID?";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(436, 404);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Click Here!";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.loginRegisterButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
@@ -138,5 +162,7 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button loginRegisterButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
