@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityControllers\CustomEntity.cs" />
     <Compile Include="EntityControllers\GenericEntity.cs" />
     <Compile Include="LibraryDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

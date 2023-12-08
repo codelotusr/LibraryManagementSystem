@@ -153,6 +153,7 @@ namespace LibraryManagementSystem.View
                         _context.Entry(selectedBook).State = EntityState.Detached;
                         await _genericEntity.DeleteEntityAsync(selectedBook);
                         await LoadCatalogItemsAsync();
+                        MessageBox.Show("Book deleted.");
                     }
                     catch (Exception ex)
                     {
@@ -166,8 +167,52 @@ namespace LibraryManagementSystem.View
             }
         }
 
+        private async Task UpdateBookAsync()
+        {
+            if (adminManageCatalogListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a book to update.");
+                return;
+            }
 
+            var selectedItem = adminManageCatalogListView.SelectedItems[0];
+            if (selectedItem.Tag is Book selectedBook)
+            {
+                MessageBox.Show($"Selected book: {selectedBook.Title}");
+                var confirmResult = MessageBox.Show("Are you sure to update this book?", "Confirm Update", MessageBoxButtons.YesNo);
 
+                if (confirmResult == DialogResult.Yes)
+                {
+                    selectedBook.Title = adminManageCatalogTitleTextBox.Text;
+                    selectedBook.Author = adminManageCatalogAuthorTextBox.Text;
+                    selectedBook.ISBN = adminManageCatalogIsbnTextBox.Text;
+                    selectedBook.PublishedYear = int.Parse(adminManageCatalogYearTextBox.Text);
+                    selectedBook.Category = adminManageCatalogCategoryTextBox.Text;
+                    selectedBook.Description = adminManageCatalogDescriptionTextBox.Text;
+                    selectedBook.Quantity = int.Parse(adminManageCatalogQuantityTextBox.Text);
+                    selectedBook.Price = decimal.Parse(adminManageCatalogPriceTextBox.Text);
+                    selectedBook.Edition = adminManageCatalogEditionTextBox.Text;
+                    selectedBook.ShelfLocation = adminManageCatalogLocationTextBox.Text;
+
+                    try
+                    {
+                        _context.Entry(selectedBook).State = EntityState.Detached;
+                        await _genericEntity.UpdateEntityAsync(selectedBook);
+                        await LoadCatalogItemsAsync(); 
+                        MessageBox.Show("Book updated.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating book: " + ex.Message);
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selected item's tag is not a book.");
+            }
+        }
 
         private async void adminManageCatalogCreateButton_Click(object sender, EventArgs e)
         {
@@ -213,9 +258,9 @@ namespace LibraryManagementSystem.View
             }
         }
 
-        private void adminManageCatalogUpdate_Click(object sender, EventArgs e)
+        private async void adminManageCatalogUpdate_Click(object sender, EventArgs e)
         {
-
+            await UpdateBookAsync();
         }
     }
 }
