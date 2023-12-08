@@ -212,5 +212,10 @@ namespace LibraryManagementSystem.View
 
             }
         }
+
+        private void adminManageCatalogUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

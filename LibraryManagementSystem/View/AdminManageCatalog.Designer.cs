@@ -57,27 +57,28 @@ namespace LibraryManagementSystem.View
             this.label9 = new System.Windows.Forms.Label();
             this.adminManageCatalogDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.adminManageCatalogUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // adminManageCatalogCreateButton
             // 
-            this.adminManageCatalogCreateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminManageCatalogCreateButton.Location = new System.Drawing.Point(452, 361);
+            this.adminManageCatalogCreateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminManageCatalogCreateButton.Location = new System.Drawing.Point(469, 371);
             this.adminManageCatalogCreateButton.Name = "adminManageCatalogCreateButton";
-            this.adminManageCatalogCreateButton.Size = new System.Drawing.Size(158, 77);
+            this.adminManageCatalogCreateButton.Size = new System.Drawing.Size(98, 67);
             this.adminManageCatalogCreateButton.TabIndex = 0;
-            this.adminManageCatalogCreateButton.Text = "Add Library Item";
+            this.adminManageCatalogCreateButton.Text = "Add";
             this.adminManageCatalogCreateButton.UseVisualStyleBackColor = true;
             this.adminManageCatalogCreateButton.Click += new System.EventHandler(this.adminManageCatalogCreateButton_Click);
             // 
             // adminManageCatalogDeleteButton
             // 
-            this.adminManageCatalogDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminManageCatalogDeleteButton.Location = new System.Drawing.Point(630, 361);
+            this.adminManageCatalogDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminManageCatalogDeleteButton.Location = new System.Drawing.Point(683, 371);
             this.adminManageCatalogDeleteButton.Name = "adminManageCatalogDeleteButton";
-            this.adminManageCatalogDeleteButton.Size = new System.Drawing.Size(158, 77);
+            this.adminManageCatalogDeleteButton.Size = new System.Drawing.Size(105, 66);
             this.adminManageCatalogDeleteButton.TabIndex = 1;
-            this.adminManageCatalogDeleteButton.Text = "Delete Library Item";
+            this.adminManageCatalogDeleteButton.Text = "Delete";
             this.adminManageCatalogDeleteButton.UseVisualStyleBackColor = true;
             this.adminManageCatalogDeleteButton.Click += new System.EventHandler(this.adminManageCatalogDeleteButton_Click);
             // 
@@ -293,11 +294,23 @@ namespace LibraryManagementSystem.View
             this.label10.TabIndex = 23;
             this.label10.Text = "Description";
             // 
+            // adminManageCatalogUpdate
+            // 
+            this.adminManageCatalogUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminManageCatalogUpdate.Location = new System.Drawing.Point(573, 371);
+            this.adminManageCatalogUpdate.Name = "adminManageCatalogUpdate";
+            this.adminManageCatalogUpdate.Size = new System.Drawing.Size(104, 66);
+            this.adminManageCatalogUpdate.TabIndex = 24;
+            this.adminManageCatalogUpdate.Text = "Update";
+            this.adminManageCatalogUpdate.UseVisualStyleBackColor = true;
+            this.adminManageCatalogUpdate.Click += new System.EventHandler(this.adminManageCatalogUpdate_Click);
+            // 
             // AdminManageCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.adminManageCatalogUpdate);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.adminManageCatalogDescriptionTextBox);
             this.Controls.Add(this.adminManageCatalogLocationTextBox);
@@ -358,5 +371,6 @@ namespace LibraryManagementSystem.View
         private ColumnHeader columnHeaderTitle;
         private ColumnHeader columnHeaderAuthor;
         private ColumnHeader columnHeaderYearPublished;
+        private Button adminManageCatalogUpdate;
     }
 }
