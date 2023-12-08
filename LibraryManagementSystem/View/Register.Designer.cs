@@ -65,6 +65,7 @@
             this.returnButton.TabIndex = 1;
             this.returnButton.Text = "Return";
             this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
             // label1
             // 

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.EntityUtils;
 using LibraryManagementSystem.Models;
+using LibraryManagementSystem.View;
 
 namespace LibraryManagementSystem
 {
@@ -112,6 +113,8 @@ namespace LibraryManagementSystem
                 MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}");
             }
 
+            backToLoginScreen();
+
 
         }
 
@@ -159,5 +162,16 @@ namespace LibraryManagementSystem
             }
         }
 
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            backToLoginScreen();
+        }
+
+        private void backToLoginScreen()
+        {
+            var previousForm = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            previousForm?.Show();
+            this.Close();
+        }
     }
 }

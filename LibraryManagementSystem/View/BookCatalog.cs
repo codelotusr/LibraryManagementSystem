@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.EntityUtils;
 using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem.View
@@ -14,27 +15,30 @@ namespace LibraryManagementSystem.View
     public partial class BookCatalog : Form
     {
         private LibraryContext _context;
+        private readonly GenericEntity _genericEntity;
         public BookCatalog()
         {
             InitializeComponent();
-            _context = new LibraryContext();
-            LoadData();
+            _context = ServiceLocator.LibraryContext;
+            _genericEntity = ServiceLocator.GenericEntity;
+            LoadCatalogItemsAsync();
         }
 
-        private void LoadData()
+        private async Task LoadCatalogItemsAsync()
         {
+            var items = await _genericEntity.GetAllEntitiesAsync<Book>();
+
+            var sortedItems = items.OrderBy(item => item.Title).ToList();
+
             catalogListView.Items.Clear();
 
-            var books = _context.Books.ToList();
-
-
-            foreach (var book in books)
+            foreach (var item in sortedItems)
             {
-                var item = new ListViewItem(book.Title);
-                item.SubItems.Add(book.Author);
-                item.SubItems.Add(book.PublishedYear.ToString());
+                var listViewItem = new ListViewItem(item.Title);
+                listViewItem.SubItems.Add(item.Author);
+                listViewItem.SubItems.Add(item.PublishedYear.ToString());
 
-                catalogListView.Items.Add(item);
+                catalogListView.Items.Add(listViewItem);
             }
         }
 

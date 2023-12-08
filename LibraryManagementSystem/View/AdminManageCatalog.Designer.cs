@@ -34,6 +34,9 @@ namespace LibraryManagementSystem.View
             this.adminManageCatalogDeleteButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.adminManageCatalogListView = new System.Windows.Forms.ListView();
+            this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderYearPublished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.adminManageCatalogTitleTextBox = new System.Windows.Forms.TextBox();
             this.adminManageCatalogAuthorTextBox = new System.Windows.Forms.TextBox();
@@ -54,9 +57,6 @@ namespace LibraryManagementSystem.View
             this.label9 = new System.Windows.Forms.Label();
             this.adminManageCatalogDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderYearPublished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // adminManageCatalogCreateButton
@@ -106,6 +106,21 @@ namespace LibraryManagementSystem.View
             this.adminManageCatalogListView.UseCompatibleStateImageBehavior = false;
             this.adminManageCatalogListView.View = System.Windows.Forms.View.Details;
             this.adminManageCatalogListView.SelectedIndexChanged += new System.EventHandler(this.adminManageCatalogListView_SelectedIndexChanged);
+            // 
+            // columnHeaderTitle
+            // 
+            this.columnHeaderTitle.Text = "Title";
+            this.columnHeaderTitle.Width = 120;
+            // 
+            // columnHeaderAuthor
+            // 
+            this.columnHeaderAuthor.Text = "Author";
+            this.columnHeaderAuthor.Width = 120;
+            // 
+            // columnHeaderYearPublished
+            // 
+            this.columnHeaderYearPublished.Text = "Year Published";
+            this.columnHeaderYearPublished.Width = 100;
             // 
             // label1
             // 
@@ -277,21 +292,6 @@ namespace LibraryManagementSystem.View
             this.label10.Size = new System.Drawing.Size(95, 20);
             this.label10.TabIndex = 23;
             this.label10.Text = "Description";
-            // 
-            // columnHeaderTitle
-            // 
-            this.columnHeaderTitle.Text = "Title";
-            this.columnHeaderTitle.Width = 120;
-            // 
-            // columnHeaderAuthor
-            // 
-            this.columnHeaderAuthor.Text = "Author";
-            this.columnHeaderAuthor.Width = 120;
-            // 
-            // columnHeaderYearPublished
-            // 
-            this.columnHeaderYearPublished.Text = "Year Published";
-            this.columnHeaderYearPublished.Width = 100;
             // 
             // AdminManageCatalog
             // 

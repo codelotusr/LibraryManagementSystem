@@ -27,9 +27,15 @@ namespace LibraryManagementSystem
             string userId = userIdTextBox.Text;
             string password = passwordTextBox.Text;
 
-            if (!Regex.IsMatch(userId, @"^\d{8}$") || !Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
+            if (string.IsNullOrWhiteSpace(userId))
             {
-                MessageBox.Show("Invalid UserID or Password format.");
+                MessageBox.Show("The UserID field cannot be left empty");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("The Password field cannot be left empty");
                 return;
             }
 
