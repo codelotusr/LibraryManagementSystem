@@ -31,8 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.catalogButton = new System.Windows.Forms.Button();
             this.eventsButton = new System.Windows.Forms.Button();
-            this.finesButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
+            this.borrowedBooksButton = new System.Windows.Forms.Button();
             this.adminPanelButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -62,7 +61,7 @@
             // eventsButton
             // 
             this.eventsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventsButton.Location = new System.Drawing.Point(239, 303);
+            this.eventsButton.Location = new System.Drawing.Point(640, 303);
             this.eventsButton.Name = "eventsButton";
             this.eventsButton.Size = new System.Drawing.Size(128, 51);
             this.eventsButton.TabIndex = 2;
@@ -70,26 +69,16 @@
             this.eventsButton.UseVisualStyleBackColor = true;
             this.eventsButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // finesButton
+            // borrowedBooksButton
             // 
-            this.finesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finesButton.Location = new System.Drawing.Point(435, 303);
-            this.finesButton.Name = "finesButton";
-            this.finesButton.Size = new System.Drawing.Size(128, 51);
-            this.finesButton.TabIndex = 3;
-            this.finesButton.Text = "Fines";
-            this.finesButton.UseVisualStyleBackColor = true;
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.Location = new System.Drawing.Point(640, 303);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(128, 51);
-            this.settingsButton.TabIndex = 4;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.button3_Click);
+            this.borrowedBooksButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowedBooksButton.Location = new System.Drawing.Point(342, 303);
+            this.borrowedBooksButton.Name = "borrowedBooksButton";
+            this.borrowedBooksButton.Size = new System.Drawing.Size(128, 51);
+            this.borrowedBooksButton.TabIndex = 4;
+            this.borrowedBooksButton.Text = "Borrowed";
+            this.borrowedBooksButton.UseVisualStyleBackColor = true;
+            this.borrowedBooksButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // adminPanelButton
             // 
@@ -120,8 +109,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.adminPanelButton);
-            this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.finesButton);
+            this.Controls.Add(this.borrowedBooksButton);
             this.Controls.Add(this.eventsButton);
             this.Controls.Add(this.catalogButton);
             this.Controls.Add(this.label1);
@@ -137,8 +125,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button catalogButton;
         private System.Windows.Forms.Button eventsButton;
-        private System.Windows.Forms.Button finesButton;
-        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button borrowedBooksButton;
         private System.Windows.Forms.Button adminPanelButton;
         private System.Windows.Forms.Button logoutButton;
     }

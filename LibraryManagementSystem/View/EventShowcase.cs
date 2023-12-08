@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.View
 {
-    public partial class ReservationManagement : Form
+    public partial class EventShowcase : Form
     {
-        public ReservationManagement()
+        public EventShowcase()
         {
             InitializeComponent();
         }
