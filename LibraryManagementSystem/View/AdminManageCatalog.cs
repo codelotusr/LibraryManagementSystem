@@ -48,6 +48,66 @@ namespace LibraryManagementSystem.View
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(adminManageCatalogTitleTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogAuthorTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogIsbnTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogYearTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogCategoryTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogDescriptionTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogQuantityTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogPriceTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogEditionTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageCatalogLocationTextBox.Text))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+
+                if (!int.TryParse(adminManageCatalogYearTextBox.Text, out var year))
+                {
+                    MessageBox.Show("Please enter a valid year.");
+                    return;
+                }
+
+                if (!int.TryParse(adminManageCatalogQuantityTextBox.Text, out var quantity))
+                {
+                    MessageBox.Show("Please enter a valid quantity.");
+                    return;
+                }
+
+                if (!int.TryParse(adminManageCatalogPriceTextBox.Text, out var price))
+                {
+                    MessageBox.Show("Please enter a valid price.");
+                    return;
+                }
+
+                if (year < 0 || year > 9999)
+                {
+                    MessageBox.Show("Please enter a valid year.");
+                    return;
+                }
+
+                if (quantity < 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity.");
+                    return;
+                }
+
+                if (price < 0)
+                {
+                    MessageBox.Show("Please enter a valid price.");
+                    return;
+                }
+
+                if (adminManageCatalogListView.Items.Cast<ListViewItem>().Any(item =>
+                        item.SubItems[0].Text == adminManageCatalogTitleTextBox.Text &&
+                        item.SubItems[1].Text == adminManageCatalogAuthorTextBox.Text &&
+                        item.SubItems[2].Text == adminManageCatalogYearTextBox.Text))
+                {
+                    MessageBox.Show("Book already exists.");
+                    return;
+                }
+
                 var newBook = new Book
                 {
                     Title = adminManageCatalogTitleTextBox.Text,
@@ -126,6 +186,21 @@ namespace LibraryManagementSystem.View
                 var selectedItemTitle = selectedItem.SubItems[0].Text;
                 var selectedItemAuthor = selectedItem.SubItems[1].Text;
                 var selectedItemYear = selectedItem.SubItems[2].Text;
+
+                var selectedItemDetails = _context.Books.FirstOrDefault(item =>
+                                                          item.Title == selectedItemTitle && item.Author == selectedItemAuthor &&
+                                                                                                                   item.PublishedYear.ToString() == selectedItemYear);
+
+                adminManageCatalogTitleTextBox.Text = selectedItemDetails.Title;
+                adminManageCatalogAuthorTextBox.Text = selectedItemDetails.Author;
+                adminManageCatalogIsbnTextBox.Text = selectedItemDetails.ISBN;
+                adminManageCatalogYearTextBox.Text = selectedItemDetails.PublishedYear.ToString();
+                adminManageCatalogCategoryTextBox.Text = selectedItemDetails.Category;
+                adminManageCatalogDescriptionTextBox.Text = selectedItemDetails.Description;
+                adminManageCatalogQuantityTextBox.Text = selectedItemDetails.Quantity.ToString();
+                adminManageCatalogPriceTextBox.Text = selectedItemDetails.Price.ToString();
+                adminManageCatalogEditionTextBox.Text = selectedItemDetails.Edition;
+                adminManageCatalogLocationTextBox.Text = selectedItemDetails.ShelfLocation;
 
             }
         }
