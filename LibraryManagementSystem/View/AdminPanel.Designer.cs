@@ -31,13 +31,12 @@
             this.adminPanelManageCatalogButton = new System.Windows.Forms.Button();
             this.adminPanelManageEventsButton = new System.Windows.Forms.Button();
             this.adminPanelReturnButton = new System.Windows.Forms.Button();
-            this.adminPanelManageUsersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // adminPanelManageCatalogButton
             // 
             this.adminPanelManageCatalogButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminPanelManageCatalogButton.Location = new System.Drawing.Point(319, 33);
+            this.adminPanelManageCatalogButton.Location = new System.Drawing.Point(102, 179);
             this.adminPanelManageCatalogButton.Name = "adminPanelManageCatalogButton";
             this.adminPanelManageCatalogButton.Size = new System.Drawing.Size(151, 78);
             this.adminPanelManageCatalogButton.TabIndex = 0;
@@ -67,23 +66,11 @@
             this.adminPanelReturnButton.UseVisualStyleBackColor = true;
             this.adminPanelReturnButton.Click += new System.EventHandler(this.adminPanelReturnButton_Click);
             // 
-            // adminPanelManageUsersButton
-            // 
-            this.adminPanelManageUsersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminPanelManageUsersButton.Location = new System.Drawing.Point(65, 179);
-            this.adminPanelManageUsersButton.Name = "adminPanelManageUsersButton";
-            this.adminPanelManageUsersButton.Size = new System.Drawing.Size(151, 78);
-            this.adminPanelManageUsersButton.TabIndex = 5;
-            this.adminPanelManageUsersButton.Text = "Manage Users";
-            this.adminPanelManageUsersButton.UseVisualStyleBackColor = true;
-            this.adminPanelManageUsersButton.Click += new System.EventHandler(this.adminPanelManageUsersButton_Click);
-            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.adminPanelManageUsersButton);
             this.Controls.Add(this.adminPanelReturnButton);
             this.Controls.Add(this.adminPanelManageEventsButton);
             this.Controls.Add(this.adminPanelManageCatalogButton);
@@ -98,6 +85,5 @@
         private System.Windows.Forms.Button adminPanelManageCatalogButton;
         private System.Windows.Forms.Button adminPanelManageEventsButton;
         private System.Windows.Forms.Button adminPanelReturnButton;
-        private System.Windows.Forms.Button adminPanelManageUsersButton;
     }
 }

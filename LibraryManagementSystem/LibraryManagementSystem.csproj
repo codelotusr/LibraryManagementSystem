@@ -168,6 +168,12 @@
     <Compile Include="View\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UsersRegisteredToEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UsersRegisteredToEvent.Designer.cs">
+      <DependentUpon>UsersRegisteredToEvent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Migrations\202312061827014_InitialMigration.resx">
       <DependentUpon>202312061827014_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UsersRegisteredToEvent.resx">
+      <DependentUpon>UsersRegisteredToEvent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LibraryDatabaseDataSet1.xsc">
       <DependentUpon>LibraryDatabaseDataSet1.xsd</DependentUpon>
