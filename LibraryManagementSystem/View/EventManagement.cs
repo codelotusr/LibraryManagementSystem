@@ -75,19 +75,129 @@ namespace LibraryManagementSystem.View
 
         private async Task AddEventAsync()
         {
-            var newEvent = new Event
+            try
             {
-                Title = adminManageEventTitleTextBox.Text,
-                Description = adminManageEventDescriptionTextBox.Text,
-                EventDate = DateTime.Parse(adminManageEventDateTextBox.Text),
-                EventTime = TimeSpan.Parse(adminManageEventTimeTextBox.Text),
-                Venue = adminManageEventVenueTextBox.Text,
-                Organizer = adminManageEventOrganizerTextBox.Text,
-                ContactNo = adminManageEventContactTextBox.Text,
-                Email = adminManageEventEmailTextBox.Text
-            };
+                if (string.IsNullOrWhiteSpace(adminManageEventTitleTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventDescriptionTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventDateTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventTimeTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventVenueTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventOrganizerTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventContactTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(adminManageEventEmailTextBox.Text))
+                {
+                    MessageBox.Show("Please fill all the fields");
+                    return;
+                }
 
-            await _genericEntity.AddEntityAsync(newEvent);
+                var newEvent = new Event
+                {
+                    Title = adminManageEventTitleTextBox.Text,
+                    Description = adminManageEventDescriptionTextBox.Text,
+                    EventDate = DateTime.Parse(adminManageEventDateTextBox.Text),
+                    EventTime = TimeSpan.Parse(adminManageEventTimeTextBox.Text),
+                    Venue = adminManageEventVenueTextBox.Text,
+                    Organizer = adminManageEventOrganizerTextBox.Text,
+                    ContactNo = adminManageEventContactTextBox.Text,
+                    Email = adminManageEventEmailTextBox.Text
+                };
+
+                await _genericEntity.CreateEntityAsync(newEvent);
+                await LoadEventItemsAsync(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding event: " + ex.Message);
+            }
         }
+
+        private async void adminManageEventCreateButton_Click(object sender, EventArgs e)
+        {
+            await AddEventAsync();
+        }
+
+        private async void adminManageEventUpdate_Click(object sender, EventArgs e)
+        {
+            await UpdateEventAsync();
+        }
+
+        private async Task UpdateEventAsync()
+        {
+            if (adminManageEventListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select an event to update.");
+                return;
+            }
+
+            var selectedItem = adminManageEventListView.SelectedItems[0];
+            if (selectedItem.Tag is Event selectedEvent)
+            {
+                var confirmResult = MessageBox.Show("Are you sure to update this event?", "Confirm Update", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    selectedEvent.Title = adminManageEventTitleTextBox.Text;
+                    selectedEvent.Description = adminManageEventDescriptionTextBox.Text;
+                    selectedEvent.EventDate = DateTime.Parse(adminManageEventDateTextBox.Text);
+                    selectedEvent.EventTime = TimeSpan.Parse(adminManageEventTimeTextBox.Text);
+                    selectedEvent.Venue = adminManageEventVenueTextBox.Text;
+                    selectedEvent.Organizer = adminManageEventOrganizerTextBox.Text;
+                    selectedEvent.ContactNo = adminManageEventContactTextBox.Text;
+                    selectedEvent.Email = adminManageEventEmailTextBox.Text;
+
+                    try
+                    {
+                        await _genericEntity.UpdateEntityAsync(selectedEvent);
+                        await LoadEventItemsAsync();
+                        MessageBox.Show("Event updated.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating event: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selected item's tag is not an event.");
+            }
+        }
+
+        private async void adminManageEventDeleteButton_Click(object sender, EventArgs e)
+        {
+            await DeleteEventAsync();
+        }
+
+        private async Task DeleteEventAsync()
+        {
+            if (adminManageEventListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select an event to delete.");
+                return;
+            }
+
+            var selectedItem = adminManageEventListView.SelectedItems[0];
+            if (selectedItem.Tag is Event selectedEvent)
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this event?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        await _genericEntity.DeleteEntityAsync(selectedEvent);
+                        await LoadEventItemsAsync();
+                        MessageBox.Show("Event deleted.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting event: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selected item's tag is not an event.");
+            }
+        }
+
     }
 }

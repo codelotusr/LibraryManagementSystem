@@ -63,6 +63,7 @@
             this.adminManageEventUpdate.TabIndex = 49;
             this.adminManageEventUpdate.Text = "Update";
             this.adminManageEventUpdate.UseVisualStyleBackColor = true;
+            this.adminManageEventUpdate.Click += new System.EventHandler(this.adminManageEventUpdate_Click);
             // 
             // label10
             // 
@@ -217,6 +218,7 @@
             this.adminManageEventDeleteButton.TabIndex = 26;
             this.adminManageEventDeleteButton.Text = "Delete";
             this.adminManageEventDeleteButton.UseVisualStyleBackColor = true;
+            this.adminManageEventDeleteButton.Click += new System.EventHandler(this.adminManageEventDeleteButton_Click);
             // 
             // adminManageEventCreateButton
             // 
@@ -227,6 +229,7 @@
             this.adminManageEventCreateButton.TabIndex = 25;
             this.adminManageEventCreateButton.Text = "Add";
             this.adminManageEventCreateButton.UseVisualStyleBackColor = true;
+            this.adminManageEventCreateButton.Click += new System.EventHandler(this.adminManageEventCreateButton_Click);
             // 
             // label2
             // 
