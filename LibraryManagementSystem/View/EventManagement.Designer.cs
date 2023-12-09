@@ -43,8 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.adminManageEventListView = new System.Windows.Forms.ListView();
             this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderYearPublished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderVenue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderOrganizer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.adminManageEventDeleteButton = new System.Windows.Forms.Button();
             this.adminManageEventCreateButton = new System.Windows.Forms.Button();
@@ -171,30 +171,31 @@
             // 
             this.adminManageEventListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderTitle,
-            this.columnHeaderAuthor,
-            this.columnHeaderYearPublished});
+            this.columnHeaderVenue,
+            this.columnHeaderOrganizer});
             this.adminManageEventListView.HideSelection = false;
-            this.adminManageEventListView.Location = new System.Drawing.Point(13, 12);
+            this.adminManageEventListView.Location = new System.Drawing.Point(13, 11);
             this.adminManageEventListView.Name = "adminManageEventListView";
             this.adminManageEventListView.Size = new System.Drawing.Size(348, 298);
             this.adminManageEventListView.TabIndex = 28;
             this.adminManageEventListView.UseCompatibleStateImageBehavior = false;
             this.adminManageEventListView.View = System.Windows.Forms.View.Details;
+            this.adminManageEventListView.SelectedIndexChanged += new System.EventHandler(this.adminManageEventListView_SelectedIndexChanged);
             // 
             // columnHeaderTitle
             // 
             this.columnHeaderTitle.Text = "Title";
             this.columnHeaderTitle.Width = 128;
             // 
-            // columnHeaderAuthor
+            // columnHeaderVenue
             // 
-            this.columnHeaderAuthor.Text = "Author";
-            this.columnHeaderAuthor.Width = 128;
+            this.columnHeaderVenue.Text = "Venue";
+            this.columnHeaderVenue.Width = 128;
             // 
-            // columnHeaderYearPublished
+            // columnHeaderOrganizer
             // 
-            this.columnHeaderYearPublished.Text = "Year Published";
-            this.columnHeaderYearPublished.Width = 100;
+            this.columnHeaderOrganizer.Text = "Organizer";
+            this.columnHeaderOrganizer.Width = 100;
             // 
             // button2
             // 
@@ -205,6 +206,7 @@
             this.button2.TabIndex = 27;
             this.button2.Text = "Return";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // adminManageEventDeleteButton
             // 
@@ -310,8 +312,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView adminManageEventListView;
         private System.Windows.Forms.ColumnHeader columnHeaderTitle;
-        private System.Windows.Forms.ColumnHeader columnHeaderAuthor;
-        private System.Windows.Forms.ColumnHeader columnHeaderYearPublished;
+        private System.Windows.Forms.ColumnHeader columnHeaderVenue;
+        private System.Windows.Forms.ColumnHeader columnHeaderOrganizer;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button adminManageEventDeleteButton;
         private System.Windows.Forms.Button adminManageEventCreateButton;

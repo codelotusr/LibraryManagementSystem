@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Runtime.Remoting.Contexts;
 
 namespace LibraryManagementSystem.Models
 {
@@ -71,5 +72,18 @@ namespace LibraryManagementSystem.Models
                 .WithMany()
                 .HasForeignKey(er => er.MemberId);
         }
+
+        public IEnumerable<Book> GetBooksByCategory(string category)
+        {
+            foreach (var book in Books)
+            {
+                if (book.Category == category)
+                {
+                    yield return book;
+                }
+            }
+        }
     }
+
+
 }

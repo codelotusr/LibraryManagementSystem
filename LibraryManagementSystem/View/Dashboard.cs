@@ -46,9 +46,9 @@ namespace LibraryManagementSystem
         private void button1_Click_1(object sender, EventArgs e)
         {
             GlobalUserState.CurrentUserId = 0;
-            this.Hide();
-            Login login = new Login();
-            login.Show();
+            var previousForm = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            previousForm?.Show();
+            this.Close();
         }
 
         private void catalogButton_Click(object sender, EventArgs e)

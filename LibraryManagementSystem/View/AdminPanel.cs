@@ -26,7 +26,9 @@ namespace LibraryManagementSystem.View
 
         private void adminPanelManageEventsButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            EventManagement eventManagement = new EventManagement();
+            eventManagement.Show();
         }
 
         private void adminPanelReturnButton_Click(object sender, EventArgs e)
