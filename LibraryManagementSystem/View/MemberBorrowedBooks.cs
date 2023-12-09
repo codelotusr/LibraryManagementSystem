@@ -24,6 +24,7 @@ namespace LibraryManagementSystem.View
             _genericEntity = ServiceLocator.GenericEntity;
             _currentUserId = GlobalUserState.CurrentUserId;
             LoadBorrowedItemsAsync();
+            setAllTextBoxesReadOnly();
         }
 
         private void memberBorrowedReturnButton_Click(object sender, EventArgs e)
@@ -33,28 +34,26 @@ namespace LibraryManagementSystem.View
             this.Close();
         }
 
-        private async void memberBorrowedListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void memberBorrowedListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (memberBorrowedListView.SelectedItems.Count > 0)
             {
                 var selectedItem = memberBorrowedListView.SelectedItems[0];
-                var selectedItemTitle = selectedItem.SubItems[0].Text;
-                var selectedItemAuthor = selectedItem.SubItems[1].Text;
-
-                var selectedItemDetails = _context.Books.FirstOrDefault(item =>
-                    item.Title == selectedItemTitle && item.Author == selectedItemAuthor);
-
-                memberBorrowedTitleTextBox.Text = selectedItemDetails.Title;
-                memberBorrowedAuthorTextBox.Text = selectedItemDetails.Author;
-                memberBorrowedIsbnTextBox.Text = selectedItemDetails.ISBN;
-                memberBorrowedYearTextBox.Text = selectedItemDetails.PublishedYear.ToString();
-                memberBorrowedCategoryTextBox.Text = selectedItemDetails.Category;
-                memberBorrowedEditionTextBox.Text = selectedItemDetails.Edition;
-                memberBorrowedDescriptionTextBox.Text = selectedItemDetails.Description;
+                if (selectedItem.Tag is BorrowedBookDetails details)
+                {
+                    memberBorrowedTitleTextBox.Text = details.Title;
+                    memberBorrowedAuthorTextBox.Text = details.Author;
+                    memberBorrowedIsbnTextBox.Text = details.ISBN;
+                    memberBorrowedYearTextBox.Text = details.PublishedYear.ToString();
+                    memberBorrowedCategoryTextBox.Text = details.Category;
+                    memberBorrowedEditionTextBox.Text = details.Edition;
+                    memberBorrowedDescriptionTextBox.Text = details.Description;
+                }
             }
         }
 
-        private async void LoadBorrowedItemsAsync()
+
+        private async Task LoadBorrowedItemsAsync()
         {
             var borrowedItems = await _genericEntity.GetAllEntitiesAsync<BorrowingRecord>();
             var memberBorrowedItems = borrowedItems.Where(b => b.MemberId == _currentUserId && b.Status == BorrowingStatus.Borrowed);
@@ -63,14 +62,39 @@ namespace LibraryManagementSystem.View
 
             foreach (var item in memberBorrowedItems)
             {
-                var listViewItem = new ListViewItem(item.Book.Title);
-                listViewItem.SubItems.Add(item.Book.Author);
-                listViewItem.SubItems.Add(item.BorrowedDate.ToShortDateString());
-                listViewItem.SubItems.Add(item.DueDate.ToShortDateString());
+                var borrowedBookDetails = new BorrowedBookDetails
+                {
+                    Title = item.Book.Title,
+                    Author = item.Book.Author,
+                    ISBN = item.Book.ISBN,
+                    PublishedYear = item.Book.PublishedYear,
+                    Category = item.Book.Category,
+                    Edition = item.Book.Edition,
+                    Description = item.Book.Description,
+                    BorrowedDate = item.BorrowedDate,
+                    DueDate = item.DueDate
+                };
+
+                var listViewItem = new ListViewItem(borrowedBookDetails.Title);
+                listViewItem.SubItems.Add(borrowedBookDetails.Author);
+                listViewItem.SubItems.Add(borrowedBookDetails.BorrowedDate.ToShortDateString());
+                listViewItem.SubItems.Add(borrowedBookDetails.DueDate.ToShortDateString());
+                listViewItem.Tag = borrowedBookDetails;
 
                 memberBorrowedListView.Items.Add(listViewItem);
             }
-
         }
+
+        private void setAllTextBoxesReadOnly()
+        {
+            memberBorrowedTitleTextBox.ReadOnly = true;
+            memberBorrowedAuthorTextBox.ReadOnly = true;
+            memberBorrowedIsbnTextBox.ReadOnly = true;
+            memberBorrowedYearTextBox.ReadOnly = true;
+            memberBorrowedCategoryTextBox.ReadOnly = true;
+            memberBorrowedEditionTextBox.ReadOnly = true;
+            memberBorrowedDescriptionTextBox.ReadOnly = true;
+        }
+
     }
 }

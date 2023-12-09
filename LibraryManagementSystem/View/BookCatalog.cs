@@ -23,6 +23,7 @@ namespace LibraryManagementSystem.View
             _context = ServiceLocator.LibraryContext;
             _genericEntity = ServiceLocator.GenericEntity;
             LoadCatalogItemsAsync();
+            setAllTextBoxesReadOnly();
         }
 
         private async Task LoadCatalogItemsAsync()
@@ -118,6 +119,17 @@ namespace LibraryManagementSystem.View
             var previousForm = Application.OpenForms.OfType<Dashboard>().FirstOrDefault();
             previousForm?.Show();
             this.Close();
+        }
+
+        private void setAllTextBoxesReadOnly()
+        {
+            catalogTitleTextBox.ReadOnly = true;
+            catalogAuthorTextBox.ReadOnly = true;
+            catalogIsbnTextBox.ReadOnly = true;
+            catalogYearTextBox.ReadOnly = true;
+            catalogCategoryTextBox.ReadOnly = true;
+            catalogEditionTextBox.ReadOnly = true;
+            catalogDescriptionTextBox.ReadOnly = true;
         }
     }
 }
