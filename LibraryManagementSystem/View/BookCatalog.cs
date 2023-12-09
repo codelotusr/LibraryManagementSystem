@@ -131,5 +131,17 @@ namespace LibraryManagementSystem.View
             catalogEditionTextBox.ReadOnly = true;
             catalogDescriptionTextBox.ReadOnly = true;
         }
+
+        public List<Book> SearchBooks(string keyword, bool sortByTitle = true, int maxResults = 10)
+        {
+            var query = _context.Books.Where(book => book.Title.Contains(keyword) || book.Author.Contains(keyword));
+
+            if (sortByTitle)
+            {
+                query = query.OrderBy(book => book.Title);
+            }
+
+            return query.Take(maxResults).ToList();
+        }
     }
 }

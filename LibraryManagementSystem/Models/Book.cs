@@ -69,6 +69,7 @@ namespace LibraryManagementSystem.Models
                     throw new FormatException($"The {format} format string is not supported.");
             }
         }
+
         public override string ToString()
         {
             return ToString("G", CultureInfo.CurrentCulture);
@@ -122,14 +123,4 @@ namespace LibraryManagementSystem.Models
 
     }
 
-    public enum Category
-    {
-        Fiction,
-        NonFiction,
-        Science,
-        History,
-        Biography,
-        Children,
-        Other
-    }
 }
