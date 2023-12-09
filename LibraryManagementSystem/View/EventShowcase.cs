@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Core;
 using LibraryManagementSystem.EntityUtils;
 using LibraryManagementSystem.Models;
 
@@ -87,6 +88,57 @@ namespace LibraryManagementSystem.View
             var previousForm = Application.OpenForms.OfType<Dashboard>().FirstOrDefault();
             previousForm?.Show();
             this.Close();
+        }
+
+        private async void signUpForEventButton_Click(object sender, EventArgs e)
+        {
+            if (eventListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select an event to register");
+                return;
+            }
+
+            var selectedItem = eventListView.SelectedItems[0];
+            var selectedItemTitle = selectedItem.SubItems[0].Text;
+
+            var selectedItemDetails = _context.Events.FirstOrDefault(item => item.Title == selectedItemTitle);
+
+            if (selectedItemDetails != null)
+            {
+                var selectedItemDate = selectedItem.SubItems[1].Text;
+                var selectedItemTime = selectedItem.SubItems[2].Text;
+
+                if (selectedItemDetails.EventDate.ToString().Split(' ')[0] == selectedItemDate &&
+                    selectedItemDetails.EventTime.ToString() == selectedItemTime)
+                {
+                    int currentMemberId = GlobalUserState.CurrentUserId;
+
+                    var eventRegistration = new EventRegistration
+                    {
+                        EventId = selectedItemDetails.Id,
+                        MemberId = currentMemberId,
+                        RegisteredDate = DateTime.Now
+                    };
+
+                    try
+                    {
+                        await _genericEntity.CreateEntityAsync(eventRegistration);
+                        MessageBox.Show("Event registration successful");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("An error occurred while registering for the event");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selected event not found");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selected event not found");
+            }
         }
     }
 }

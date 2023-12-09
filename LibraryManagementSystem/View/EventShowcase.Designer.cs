@@ -190,6 +190,7 @@
             this.signUpForEventButton.TabIndex = 21;
             this.signUpForEventButton.Text = "Sign Up";
             this.signUpForEventButton.UseVisualStyleBackColor = true;
+            this.signUpForEventButton.Click += new System.EventHandler(this.signUpForEventButton_Click);
             // 
             // eventListView
             // 

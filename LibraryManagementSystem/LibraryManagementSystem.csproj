@@ -97,7 +97,6 @@
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Core\ServiceLocator.cs" />
-    <Compile Include="Models\UserRegisteredEventDetails.cs" />
     <Compile Include="View\AdminManageCatalog.cs">
       <SubType>Form</SubType>
     </Compile>
