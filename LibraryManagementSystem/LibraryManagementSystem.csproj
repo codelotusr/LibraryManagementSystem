@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Core\GlobalUserState.cs" />
     <Compile Include="EntityControllers\GenericEntity.cs" />
+    <Compile Include="Exceptions\EntityOperationException.cs" />
     <Compile Include="LibraryDatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +97,7 @@
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Core\ServiceLocator.cs" />
+    <Compile Include="Models\UserRegisteredEventDetails.cs" />
     <Compile Include="View\AdminManageCatalog.cs">
       <SubType>Form</SubType>
     </Compile>

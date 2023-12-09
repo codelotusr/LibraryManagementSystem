@@ -34,7 +34,7 @@
             this.eventContactTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.eventOrganizerTextBox = new System.Windows.Forms.TextBox();
-            this.catalogReturnButton = new System.Windows.Forms.Button();
+            this.eventReturnButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.eventVenueTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,11 +43,11 @@
             this.eventDateTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.eventTitleTextBox = new System.Windows.Forms.TextBox();
-            this.rentABookButton = new System.Windows.Forms.Button();
-            this.catalogListView = new System.Windows.Forms.ListView();
-            this.catalogTitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.catalogAuthorColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.catalogYearColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.signUpForEventButton = new System.Windows.Forms.Button();
+            this.eventListView = new System.Windows.Forms.ListView();
+            this.eventTitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.eventDateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.eventTimeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label5
@@ -102,15 +102,16 @@
             this.eventOrganizerTextBox.Size = new System.Drawing.Size(334, 20);
             this.eventOrganizerTextBox.TabIndex = 31;
             // 
-            // catalogReturnButton
+            // eventReturnButton
             // 
-            this.catalogReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catalogReturnButton.Location = new System.Drawing.Point(670, 375);
-            this.catalogReturnButton.Name = "catalogReturnButton";
-            this.catalogReturnButton.Size = new System.Drawing.Size(110, 42);
-            this.catalogReturnButton.TabIndex = 30;
-            this.catalogReturnButton.Text = "Return";
-            this.catalogReturnButton.UseVisualStyleBackColor = true;
+            this.eventReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventReturnButton.Location = new System.Drawing.Point(670, 375);
+            this.eventReturnButton.Name = "eventReturnButton";
+            this.eventReturnButton.Size = new System.Drawing.Size(110, 42);
+            this.eventReturnButton.TabIndex = 30;
+            this.eventReturnButton.Text = "Return";
+            this.eventReturnButton.UseVisualStyleBackColor = true;
+            this.eventReturnButton.Click += new System.EventHandler(this.eventReturnButton_Click);
             // 
             // label3
             // 
@@ -180,44 +181,45 @@
             this.eventTitleTextBox.Size = new System.Drawing.Size(334, 20);
             this.eventTitleTextBox.TabIndex = 22;
             // 
-            // rentABookButton
+            // signUpForEventButton
             // 
-            this.rentABookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentABookButton.Location = new System.Drawing.Point(446, 375);
-            this.rentABookButton.Name = "rentABookButton";
-            this.rentABookButton.Size = new System.Drawing.Size(110, 42);
-            this.rentABookButton.TabIndex = 21;
-            this.rentABookButton.Text = "Rent";
-            this.rentABookButton.UseVisualStyleBackColor = true;
+            this.signUpForEventButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUpForEventButton.Location = new System.Drawing.Point(446, 375);
+            this.signUpForEventButton.Name = "signUpForEventButton";
+            this.signUpForEventButton.Size = new System.Drawing.Size(110, 42);
+            this.signUpForEventButton.TabIndex = 21;
+            this.signUpForEventButton.Text = "Sign Up";
+            this.signUpForEventButton.UseVisualStyleBackColor = true;
             // 
-            // catalogListView
+            // eventListView
             // 
-            this.catalogListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.catalogTitleColumn,
-            this.catalogAuthorColumn,
-            this.catalogYearColumn});
-            this.catalogListView.HideSelection = false;
-            this.catalogListView.Location = new System.Drawing.Point(24, 31);
-            this.catalogListView.Name = "catalogListView";
-            this.catalogListView.Size = new System.Drawing.Size(347, 386);
-            this.catalogListView.TabIndex = 20;
-            this.catalogListView.UseCompatibleStateImageBehavior = false;
-            this.catalogListView.View = System.Windows.Forms.View.Details;
+            this.eventListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.eventTitleColumn,
+            this.eventDateColumn,
+            this.eventTimeColumn});
+            this.eventListView.HideSelection = false;
+            this.eventListView.Location = new System.Drawing.Point(24, 31);
+            this.eventListView.Name = "eventListView";
+            this.eventListView.Size = new System.Drawing.Size(347, 386);
+            this.eventListView.TabIndex = 20;
+            this.eventListView.UseCompatibleStateImageBehavior = false;
+            this.eventListView.View = System.Windows.Forms.View.Details;
+            this.eventListView.SelectedIndexChanged += new System.EventHandler(this.eventListView_SelectedIndexChanged);
             // 
-            // catalogTitleColumn
+            // eventTitleColumn
             // 
-            this.catalogTitleColumn.Text = "Title";
-            this.catalogTitleColumn.Width = 141;
+            this.eventTitleColumn.Text = "Title";
+            this.eventTitleColumn.Width = 141;
             // 
-            // catalogAuthorColumn
+            // eventDateColumn
             // 
-            this.catalogAuthorColumn.Text = "Author";
-            this.catalogAuthorColumn.Width = 132;
+            this.eventDateColumn.Text = "Date";
+            this.eventDateColumn.Width = 132;
             // 
-            // catalogYearColumn
+            // eventTimeColumn
             // 
-            this.catalogYearColumn.Text = "Year";
-            this.catalogYearColumn.Width = 72;
+            this.eventTimeColumn.Text = "Time";
+            this.eventTimeColumn.Width = 72;
             // 
             // EventShowcase
             // 
@@ -230,7 +232,7 @@
             this.Controls.Add(this.eventContactTextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.eventOrganizerTextBox);
-            this.Controls.Add(this.catalogReturnButton);
+            this.Controls.Add(this.eventReturnButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.eventVenueTextBox);
             this.Controls.Add(this.label4);
@@ -239,8 +241,8 @@
             this.Controls.Add(this.eventDateTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.eventTitleTextBox);
-            this.Controls.Add(this.rentABookButton);
-            this.Controls.Add(this.catalogListView);
+            this.Controls.Add(this.signUpForEventButton);
+            this.Controls.Add(this.eventListView);
             this.Name = "EventShowcase";
             this.Text = "EventShowcase";
             this.ResumeLayout(false);
@@ -256,7 +258,7 @@
         private System.Windows.Forms.TextBox eventContactTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox eventOrganizerTextBox;
-        private System.Windows.Forms.Button catalogReturnButton;
+        private System.Windows.Forms.Button eventReturnButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox eventVenueTextBox;
         private System.Windows.Forms.Label label4;
@@ -265,10 +267,10 @@
         private System.Windows.Forms.TextBox eventDateTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox eventTitleTextBox;
-        private System.Windows.Forms.Button rentABookButton;
-        private System.Windows.Forms.ListView catalogListView;
-        private System.Windows.Forms.ColumnHeader catalogTitleColumn;
-        private System.Windows.Forms.ColumnHeader catalogAuthorColumn;
-        private System.Windows.Forms.ColumnHeader catalogYearColumn;
+        private System.Windows.Forms.Button signUpForEventButton;
+        private System.Windows.Forms.ListView eventListView;
+        private System.Windows.Forms.ColumnHeader eventTitleColumn;
+        private System.Windows.Forms.ColumnHeader eventDateColumn;
+        private System.Windows.Forms.ColumnHeader eventTimeColumn;
     }
 }

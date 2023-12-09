@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryManagementSystem.Models;
+using LibraryManagementSystem.Exceptions;
 
 namespace LibraryManagementSystem.EntityUtils
 {
@@ -26,7 +27,7 @@ namespace LibraryManagementSystem.EntityUtils
             }
             catch (Exception ex)
             {
-                throw;
+                throw new EntityOperationException("Error creating entity.", ex);
             }
         }
 
@@ -38,7 +39,7 @@ namespace LibraryManagementSystem.EntityUtils
             }
             catch (Exception ex)
             {
-                throw;
+                throw new EntityOperationException("Error reading entity.", ex);
             }
         }
 
@@ -51,7 +52,7 @@ namespace LibraryManagementSystem.EntityUtils
             }
             catch (Exception ex)
             {
-                throw;
+                throw new EntityOperationException("Error updating entity.", ex);
             }
         }
         public async Task DeleteEntityAsync<T>(T entity) where T : class
@@ -72,7 +73,7 @@ namespace LibraryManagementSystem.EntityUtils
             }
             catch (Exception ex)
             {
-                throw;
+                throw new EntityOperationException("Error deleting entity.", ex);
             }
         }
 
@@ -85,7 +86,7 @@ namespace LibraryManagementSystem.EntityUtils
             }
             catch (Exception ex)
             {
-                throw;
+                throw new EntityOperationException("Error getting all entities.", ex);
             }
         }
     }

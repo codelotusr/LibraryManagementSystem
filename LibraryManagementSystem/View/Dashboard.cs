@@ -26,7 +26,9 @@ namespace LibraryManagementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            EventShowcase eventShowcase = new EventShowcase();
+            eventShowcase.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
